@@ -1,0 +1,195 @@
+#header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  padding: .6rem 6rem;
+  background-color: #111111cc;
+  justify-content: space-between;
+  color: #13def0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+#header::before {
+  content: none;
+}
+#header::after {
+  content: none;
+}
+
+.ant-menu-item-icon {
+  font-size: 2rem !important;
+}
+.ant-menu-item:nth-child(3) {
+font-size: 1.2rem;
+font-weight: normal;
+color: #ddd;
+}
+.ant-menu-item:hover {
+  color: #ddd !important;
+}
+.ant-menu-item::after {
+  border-bottom: none !important;
+}
+.ant-menu-item-selected {
+  color: #ddd;
+}
+
+
+
+#header__hamburger {
+  background: #111111ff;
+  color: #ddd;
+  font-size: 1.5rem;
+  padding: 1.1rem;
+}
+
+
+
+#pagPrincipal {
+  background: #111;
+  padding: 6rem;
+  background-image: url("https://api-cinema-10d15.firebaseapp.com/static/media/bg.b54fb72f.jpg");
+  background-position: 50%;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.filtrosBtn {
+  background: #111;
+  color: #ddd;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+}
+.filtrosBtn:hover {
+  cursor: pointer;
+}
+.filtrosBtn {
+  border-right: none;
+}
+.filtrosBtn:last-child {
+  border-right: 1px solid #ddd;
+}
+
+#peliculas {
+  margin: 2.5rem 0;
+}
+.peliculasImg {
+  width: 100%;
+}
+.peliculasDesc {
+  background: #ddd;
+  color: #111;
+  border-radius: 0 0 7px 7px;
+  padding: 0.5rem;
+}
+.peliculasDesc__calificacion {
+  display: flex;
+  font-size: 1.1rem;
+  margin-bottom: .25rem;
+}
+.peliculasDesc__calificacion p {
+  margin-bottom: 0;
+}
+.peliculasDesc__icon {
+  color: #f5c518;
+  margin-top:  .1rem;
+  margin-right: 0.4rem;
+}
+.peliculasDesc h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+#pagPelicula {
+  padding:6rem 7rem;
+}
+
+#seccionDescripcion {
+  background: #222222bb;
+  color: #ddd;
+}
+#seccionDescripcion__datos {
+  padding-top: 2rem;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#seccionDescripcion__datos h1{
+  color: #13def0;
+  margin: 0;
+}
+.seccionDescripcion__texto {
+  padding: 0 2rem;
+}
+.seccionDescripcion__texto:nth-child(1) p {
+  margin-bottom: .2rem;
+  font-style: italic;
+}
+.seccionDescripcion__texto:nth-child(3) {
+  margin-bottom: 1rem;
+}
+.seccionDescripcion__genero {
+  background: #13def0;
+  border-radius: 5px;
+  margin: 0 .5rem;
+  text-align: center;
+}
+.seccionDescripcion__genero p, h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+#seccionDescripcion__footer {
+  background: #111;
+
+}
+#seccionDescripcion__footer p{
+  margin: 0;
+  padding: 1.5rem;
+  font-size: 1.2rem ;
+}
+
+
+#seccionActores {
+  background: #ddd;
+  padding: 2.5rem;
+  font-size: 1.2rem;
+}
+.actorDescripcion {
+  background: #bbb;
+  border-radius: 0 0 8px 8px;
+  padding: .5rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.actorDescripcion p {
+  margin: .2rem 0;
+  font-size: 1rem;
+}
+
+#seccionGaleria {
+  background: #222222bb;
+  padding: 2.5rem;
+  font-size: 1.2rem;
+  color: #ddd;
+}
+
+#footer {
+  text-align: center;
+  padding: 2.5rem 0;
+  background: #111;
+  color: #ddd;
+}
+
+@media (max-width: 992px) {
+  #header__menu {
+    display: none;
+  }
+  #header {
+    width: 75%;
+  }
+}
+@media (min-width: 992px) {
+  #header__hamburger {
+    display: none;
+  }
+}
