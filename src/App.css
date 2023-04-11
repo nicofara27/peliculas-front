@@ -76,8 +76,9 @@ color: #ddd;
   width: 100%;
 }
 .peliculasDesc {
-  background: #ddd;
-  color: #111;
+  height: 20vh;
+  background: #000;
+  color: #ddd;
   border-radius: 0 0 7px 7px;
   padding: 0.5rem;
 }
@@ -140,11 +141,11 @@ color: #ddd;
 }
 #seccionDescripcion__footer {
   background: #111;
-
+  padding: 1.5rem 0;
+  text-align: center;
 }
 #seccionDescripcion__footer p{
   margin: 0;
-  padding: 1.5rem;
   font-size: 1.2rem ;
 }
 
