@@ -1,57 +1,59 @@
-import { Col, Row, Typography } from "antd";
-import Paragraph from "antd/es/typography/Paragraph";
+import { Col, Row } from "antd";
 import Title from "antd/es/typography/Title";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const Descripcion = () => {
-  const { Text } = Typography;
+const Descripcion = (pelicula) => {
+  const {title, tagline, overview, poster_path, genres, release_date, runtime, budget} = {...pelicula.pelicula}
+  const imagen = `https://www.themoviedb.org/t/p/w440_and_h660_face${poster_path}`
+  const presupuesto = "$" + String(budget).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const duracionPorcentaje = String((runtime/60).toFixed(2));
+  const duracion = duracionPorcentaje.charAt(0) + "h:" + (((runtime/60)%1)*60).toFixed(0) + "m";
+  const [generos, setGeneros] = useState([])
+
+
+  useEffect(()=>{
+    if(genres !== undefined) {
+      setGeneros(genres)
+    }
+  },[pelicula])
+
   return (
     <Row id="seccionDescripcion">
       <Col span={6}>
         <img
           className="peliculasImg"
-          src="https://image.tmdb.org/t/p/w300/gOnmaxHo0412UVr1QM5Nekv1xPi.jpg"
+          src={imagen}
+          alt={title}
         ></img>
       </Col>
       <Col span={18} id="seccionDescripcion__datos">
         <div className="seccionDescripcion__texto">
-          <Title>Cocaine Bear</Title>
-          <p>Get in line.</p>
+          <Title>{title}</Title>
+          <p>{tagline}</p>
         </div>
         <div className="seccionDescripcion__texto">
           <p>
-            Inspired by a true story, an oddball group of cops, criminals,
-            tourists and teens converge in a Georgia forest where a 500-pound
-            black bear goes on a murderous rampage after unintentionally
-            ingesting cocaine.
+            {overview}
           </p>
         </div>
           <Row className="seccionDescripcion__texto">
             <Col span={3}>
               <h3>Generos:</h3>
             </Col>
-            <Col span={3} className="seccionDescripcion__genero">
-              <p>Thriller</p>
-            </Col>
-            <Col span={3} className="seccionDescripcion__genero">
-              <p>Thriller</p>
-            </Col>
-            <Col span={3} className="seccionDescripcion__genero">
-              <p>Thriller</p>
-            </Col>
-            <Col span={3} className="seccionDescripcion__genero">
-              <p>Thriller</p>
-            </Col>
+            {generos.map((genero)=><Col span={3} key={genero.id} className="seccionDescripcion__genero">
+              <p>{genero.name}</p>
+            </Col>)}
+            
           </Row>
           <Row id="seccionDescripcion__footer">
-            <Col span={8}>
-              <p>Fecha de estreno</p>
+            <Col span={9}>
+              <p>Fecha de estreno: {release_date}</p>
             </Col>
-            <Col span={8}>
-              <p>Duracion</p>
+            <Col span={6}>
+              <p>Duracion: {duracion}</p>
             </Col>
-            <Col span={8}>
-              <p>Presupuesto</p>
+            <Col span={9}>
+              <p>Presupuesto: {presupuesto}</p>
             </Col>
           </Row>
       </Col>
