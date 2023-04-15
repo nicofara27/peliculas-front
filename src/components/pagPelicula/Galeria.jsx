@@ -1,24 +1,17 @@
-import { Carousel } from "antd";
-import React from "react";
+import ImageGallery from "react-image-gallery";
+import React, { useEffect, useState } from "react";
 
-const Galeria = () => {
+const Galeria = (imagenesUrl) => {
+  const [listaImagenes, setListaImagenes] = useState(imagenesUrl.imagenes);
+
+useEffect(() => {
+  setListaImagenes(imagenesUrl.imagenes)
+}, [imagenesUrl]);
+
   return (
     <section id="seccionGaleria">
-        <h2>Galeria</h2>
-      <Carousel autoplay>
-        <div>
-          <img width="100%" src="https://image.tmdb.org/t/p/original/wqXXoeRrsggMv7CP5kedqaWZDPt.jpg" alt=""></img>
-        </div>
-        <div>
-          <img width="100%" src="https://image.tmdb.org/t/p/original/wqXXoeRrsggMv7CP5kedqaWZDPt.jpg" alt=""></img>
-        </div>
-        <div>
-          <img width="100%" src="https://image.tmdb.org/t/p/original/wqXXoeRrsggMv7CP5kedqaWZDPt.jpg" alt=""></img>
-        </div>
-        <div>
-          <img width="100%" src="https://image.tmdb.org/t/p/original/wqXXoeRrsggMv7CP5kedqaWZDPt.jpg" alt=""></img>
-        </div>
-      </Carousel>
+      <h2>Galeria</h2>
+      <ImageGallery showFullscreenButton={false} showIndex={true} slideInterval={2000} items={imagenesUrl.imagenes} />
     </section>
   );
 };

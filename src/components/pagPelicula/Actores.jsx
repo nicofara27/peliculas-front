@@ -1,23 +1,40 @@
-import { Col, Row } from 'antd';
-import React from 'react';
+import { Button, Row } from "antd";
+import React, { useEffect, useState } from "react";
+import ActoresCard from "./ActoresCard";
 
-const Actores = () => {
-    return (
-        <section id='seccionActores'>
-            <h2>Actores</h2>
-            <Row>
-                <Col>
-                    <div>
-                        <img src="https://image.tmdb.org/t/p/w185/u81mC6vZwliDRfnX1DpdGmmex61.jpg" alt="" />
-                    </div>
-                    <div className='actorDescripcion'>
-                        <h3>Keri Russell</h3>
-                        <p>Sari</p>
-                    </div>
-                </Col>
-            </Row>
-        </section>
-    );
+const Actores = (listaActores) => {
+  const [actores, setActores] = useState([]);
+  let [mostrarTodos, setMostrarTodos] = useState(false);
+
+  useEffect(() => {
+    if (listaActores !== undefined) {
+      if (!mostrarTodos) {
+        setActores(listaActores.actores.slice(0, 8));
+      } else {
+        setActores(listaActores.actores);
+      }
+    }
+  }, [listaActores, mostrarTodos]);
+
+   const mostrarMas = () => {
+    setMostrarTodos(!mostrarTodos)
+   }
+
+  return (
+    <section id="seccionActores">
+      <h2>Actores</h2>
+      <Row gutter={[16, 24]}>
+        {actores.map((actor) => (
+          <ActoresCard key={actor.id} actor={actor}></ActoresCard>
+        ))}
+      </Row>
+      <div id="actoresBtnCont">
+        <Button size="large" id="actoresBtn" onClick={mostrarMas}>
+          Mostrar todos
+        </Button>
+      </div>
+    </section>
+  );
 };
 
 export default Actores;

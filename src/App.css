@@ -1,3 +1,5 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
 #header {
   position: fixed;
   z-index: 10;
@@ -153,18 +155,31 @@ color: #ddd;
 #seccionActores {
   background: #ddd;
   padding: 2.5rem;
-  font-size: 1.2rem;
+  
 }
-.actorDescripcion {
+.actoresCard__img{
+  width: 100%;
+}
+.actorCard__descripcion {
   background: #bbb;
   border-radius: 0 0 8px 8px;
   padding: .5rem;
   text-align: center;
-  font-size: 1.2rem;
+  
 }
-.actorDescripcion p {
+.actorCard__descripcion p {
   margin: .2rem 0;
-  font-size: 1rem;
+}
+#actoresBtnCont {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+#actoresBtn {
+  border-color: #13def0;
+  background: #13def0;
+}
+#actoresBtn:hover {
+  color: #fff;
 }
 
 #seccionGaleria {
