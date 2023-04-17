@@ -9,7 +9,7 @@ const Actores = (listaActores) => {
   useEffect(() => {
     if (listaActores !== undefined) {
       if (!mostrarTodos) {
-        setActores(listaActores.actores.slice(0, 8));
+        setActores(listaActores.actores.slice(0, 12));
       } else {
         setActores(listaActores.actores);
       }
