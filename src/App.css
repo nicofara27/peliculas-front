@@ -98,6 +98,29 @@ color: #ddd;
   font-weight: 600;
 }
 
+#paginacion {
+  text-align: center;
+  padding: 1rem 0;
+  background: #111111cc;
+}
+.ant-pagination-item a {
+  color: #fff !important;
+  font-size: 1.3rem;
+  margin: 0 .5rem;
+}
+.ant-pagination-item-active{
+  background: #111111cc !important;
+  border-color: #fff !important;
+}
+.ant-pagination-item-link{
+  color: #fff !important;
+  
+}
+.ant-pagination-item-ellipsis {
+  color: #fff !important;
+
+}
+
 #pagPelicula {
   padding:6rem 7rem;
 }
