@@ -6,8 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Header = () => {
   const navigate = useNavigate();
   const [openMenu, setOpenMenu] = useState(false);
-  
-  const onSearch = (value) => console.log(value);
+
 
   const NavMenu = ({ isInline = false }) => {
     return (
@@ -24,20 +23,6 @@ const Header = () => {
             label: "Peliculas",
             key: "/",
             icon: <VideoCameraOutlined />,
-          },
-          {
-            label: (
-              <Input.Search
-                size="large"
-                placeholder="input search text"
-                allowClear
-                onSearch={onSearch}
-                style={{
-                  width: 200,
-                }}
-              />
-            ),
-            key:"search"
           },
           {
             label: "Ingresar / Registrarse",
