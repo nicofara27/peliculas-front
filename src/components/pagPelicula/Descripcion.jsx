@@ -40,7 +40,7 @@ const Descripcion = (pelicula) => {
             <Col span={3}>
               <h3>Generos:</h3>
             </Col>
-            {generos.map((genero)=><Col span={3} key={genero.id} className="seccionDescripcion__genero">
+            {generos.map((genero)=><Col span={4} key={genero.id} className="seccionDescripcion__genero">
               <p>{genero.name}</p>
             </Col>)}
             
