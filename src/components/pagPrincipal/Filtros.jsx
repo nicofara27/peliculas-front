@@ -1,16 +1,16 @@
 import { Col, Input, Row } from "antd";
 import React from "react";
 
-const Filtros = () => {
+const Filtros = ({setFiltro}) => {
     const onSearch = (value) => console.log(value);
   return (
     <section>
       <Row justify={"space-between"}>
         <Col>
-          <button className="filtrosBtn">Popular</button>
-          <button className="filtrosBtn">Nuevas</button>
-          <button className="filtrosBtn">Mejores votadas</button>
-          <button className="filtrosBtn">Proximas</button>
+          <button className="filtrosBtn" onClick={()=>setFiltro("popular")}>Popular</button>
+          <button className="filtrosBtn" onClick={()=>setFiltro("now_playing")}>Ahora en cines</button>
+          <button className="filtrosBtn" onClick={()=>setFiltro("top_rated")}>Mejores votadas</button>
+          <button className="filtrosBtn" onClick={()=>setFiltro("upcoming")}>Proximas</button>
         </Col>
         <Col>
           <Input.Search
