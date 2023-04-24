@@ -5,7 +5,7 @@
   z-index: 10;
   width: 100%;
   padding: .6rem 6rem;
-  background-color: #111111cc;
+  background-color: #222222;
   justify-content: space-between;
   color: #13def0;
   font-size: 2rem;
@@ -16,6 +16,10 @@
 }
 #header::after {
   content: none;
+}
+
+.ant-menu-item {
+  padding-inline: 0 !important;
 }
 
 .ant-menu-item-icon {
@@ -38,8 +42,8 @@ color: #ddd;
 #header__hamburger {
   background: #111111ff;
   color: #ddd;
-  font-size: 1.5rem;
-  padding: 1.1rem;
+  font-size: 2rem;
+  padding: 1rem 6rem;
 }
 
 
@@ -51,6 +55,11 @@ color: #ddd;
   background-position: 50%;
   background-size: cover;
   background-attachment: fixed;
+}
+#filtrosTitulo {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #ddd;
 }
 .filtrosBtn {
   background: #111;
