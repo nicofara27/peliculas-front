@@ -13,6 +13,7 @@ function App() {
       <Header></Header>
       <Routes>
         <Route exact path="/" element={<PagPrincipal />}></Route>
+        <Route exact path="/buscar/:nombre" element={<PagPrincipal />}></Route>
         <Route exact path="/:id" element={<PagPelicula />}></Route>
       </Routes>
       <Footer></Footer>
