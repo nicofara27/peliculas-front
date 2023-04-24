@@ -7,12 +7,17 @@ const PagPrincipal = () => {
   const [peliculas, setPeliculas] = useState([]);
   const [pagina, setPagina] = useState(1);
   const [filtro, setFiltro] = useState("popular")
+  const [buscar, setBuscar] = useState("")
   
   const consultarPeliculas = async () => {
     try {
-      const respuesta = await fetch(`https://api.themoviedb.org/3/movie/${filtro}?api_key=04a9c758263cb0d57addf6f08ffb1202&page=${pagina}`)
+      let respuesta = ""
+      if(buscar==="") {
+        respuesta = await fetch(`https://api.themoviedb.org/3/movie/${filtro}?api_key=04a9c758263cb0d57addf6f08ffb1202&page=${pagina}`)
+      } else {
+        respuesta = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=04a9c758263cb0d57addf6f08ffb1202&page=${pagina}&query=${buscar}`)
+      }
       const lista = await respuesta.json();
-      console.log(`https://api.themoviedb.org/3/trending/movie/${filtro}?api_key=04a9c758263cb0d57addf6f08ffb1202&page=${pagina}`)
       setPeliculas(lista.results)
     } catch (error) {
       console.log(error)
@@ -24,8 +29,12 @@ const PagPrincipal = () => {
   },[])
 
   useEffect(()=>{
+    setBuscar("");
     consultarPeliculas();
   },[filtro])
+  useEffect(()=>{
+    consultarPeliculas();
+  },[buscar])
   useEffect(()=>{
     consultarPeliculas();
     window.scrollTo({
@@ -37,7 +46,7 @@ const PagPrincipal = () => {
 
   return (
     <main id="pagPrincipal">
-      <Filtros setFiltro={setFiltro}></Filtros>
+      <Filtros filtro={filtro} setFiltro={setFiltro} setBuscar={setBuscar} buscar={buscar} setPagina={setPagina}></Filtros>
       <ListaPeliculas peliculas={peliculas}></ListaPeliculas>
       <Paginacion pagina={pagina} setPagina={setPagina}></Paginacion>
     </main>
