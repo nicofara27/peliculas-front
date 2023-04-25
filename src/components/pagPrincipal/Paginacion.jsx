@@ -2,13 +2,18 @@ import { Pagination } from "antd";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Paginacion = ({ pagina, setPagina }) => {
+const Paginacion = ({ pagina, setPagina, buscar }) => {
   const navigate = useNavigate();
 
   // Funcion para cambiar de pagina
   const cambiarPagina = (pag) => {
-    setPagina(pag);
-    navigate(`/pagina/${pag}`);
+    if(buscar === "") {
+      setPagina(pag);
+      navigate(`/pagina/${pag}`);
+    } else {
+      setPagina(pag);
+      navigate(`/buscar/${buscar}/${pag}`);
+    }
   };
 
   // Condicional que cambia a la pagina numero 1 de la lista de peliculas cuando se navega hacia la pagina principal

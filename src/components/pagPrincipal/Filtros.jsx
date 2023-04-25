@@ -2,7 +2,7 @@ import { Col, Input, Row } from "antd";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Filtros = ({filtro, setFiltro, setBuscar, buscar, setPagina }) => {
+const Filtros = ({filtro, setFiltro, setBuscar, buscar, setPagina, pagina }) => {
   const navigate = useNavigate();
 
   // Funcion para cambiar los filtros de la lista de peliculas e ir a la primera pagina de la lista
@@ -17,7 +17,7 @@ const Filtros = ({filtro, setFiltro, setBuscar, buscar, setPagina }) => {
   //Funcion para buscar una pelicula en particular e ir a la primera pagina de la lista
   const buscarPelicula = (nombre) => {
     if(nombre!=="") {
-      navigate(`/buscar/${nombre}`)
+      navigate(`/buscar/${nombre}/${pagina}`)
       setBuscar(nombre);
       setPagina(1)
     }

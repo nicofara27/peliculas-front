@@ -46,9 +46,9 @@ const PagPrincipal = () => {
 
   return (
     <main id="pagPrincipal">
-      <Filtros filtro={filtro} setFiltro={setFiltro} setBuscar={setBuscar} buscar={buscar} setPagina={setPagina}></Filtros>
+      <Filtros filtro={filtro} setFiltro={setFiltro} setBuscar={setBuscar} buscar={buscar} setPagina={setPagina} pagina={pagina}></Filtros>
       <ListaPeliculas peliculas={peliculas}></ListaPeliculas>
-      <Paginacion pagina={pagina} setPagina={setPagina}></Paginacion>
+      <Paginacion pagina={pagina} setPagina={setPagina} buscar={buscar}></Paginacion>
     </main>
   );
 };
