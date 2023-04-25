@@ -45,18 +45,6 @@ const Filtros = ({filtro, setFiltro, setBuscar, buscar, setPagina, pagina }) => 
           Proximas
         </Radio.Button>
       </Radio.Group>
-        {/* <button id="popular" className="filtrosBtn" onClick={(e) => cambiarFiltro(e)}>
-          Popular
-        </button>
-        <button id="now_playing" className="filtrosBtn" onClick={(e) => cambiarFiltro(e)}>
-          Ahora en cines
-        </button>
-        <button id="top_rated" className="filtrosBtn" onClick={(e) => cambiarFiltro(e)}>
-          Mejores votadas
-        </button>
-        <button id="upcoming" className="filtrosBtn" onClick={(e) => cambiarFiltro(e)}>
-          Proximas
-        </button> */}
       </Col>
     ) : (
       <Col>
