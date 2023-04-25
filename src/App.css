@@ -61,20 +61,9 @@ color: #ddd;
   font-size: 1.8rem;
   color: #ddd;
 }
-.filtrosBtn {
-  background: #111;
-  color: #ddd;
-  border: 1px solid #ddd;
-  padding: 0.5rem;
-}
-.filtrosBtn:hover {
-  cursor: pointer;
-}
-.filtrosBtn {
-  border-right: none;
-}
-.filtrosBtn:last-child {
-  border-right: 1px solid #ddd;
+.ant-radio-button-wrapper-checked {
+  background:#13def0 !important;
+  border-color:#13def0 !important;
 }
 
 #peliculas {
@@ -192,6 +181,7 @@ color: #ddd;
   background: #bbb;
   border-radius: 0 0 8px 8px;
   padding: .5rem;
+  height: 5rem;
   text-align: center;
 }
 .actorCard__descripcion p {

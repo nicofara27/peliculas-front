@@ -1,4 +1,4 @@
-import { Col, Input, Row } from "antd";
+import { Col, Input, Radio, Row } from "antd";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -31,7 +31,21 @@ const Filtros = ({filtro, setFiltro, setBuscar, buscar, setPagina, pagina }) => 
   const componenteCondicional =
     buscar === "" ? (
       <Col>
-        <button id="popular" className="filtrosBtn" onClick={(e) => cambiarFiltro(e)}>
+      <Radio.Group defaultValue="a" buttonStyle="solid">
+        <Radio.Button value="a" id="popular" onClick={(e) => cambiarFiltro(e)}>
+          Popular
+        </Radio.Button>
+        <Radio.Button value="b" id="now_playing" onClick={(e) => cambiarFiltro(e)}>
+          Ahora en cines
+        </Radio.Button>
+        <Radio.Button value="c" id="top_rated" onClick={(e) => cambiarFiltro(e)}>
+          Mejores votadas
+        </Radio.Button>
+        <Radio.Button value="d" id="upcoming" onClick={(e) => cambiarFiltro(e)}>
+          Proximas
+        </Radio.Button>
+      </Radio.Group>
+        {/* <button id="popular" className="filtrosBtn" onClick={(e) => cambiarFiltro(e)}>
           Popular
         </button>
         <button id="now_playing" className="filtrosBtn" onClick={(e) => cambiarFiltro(e)}>
@@ -42,7 +56,7 @@ const Filtros = ({filtro, setFiltro, setBuscar, buscar, setPagina, pagina }) => 
         </button>
         <button id="upcoming" className="filtrosBtn" onClick={(e) => cambiarFiltro(e)}>
           Proximas
-        </button>
+        </button> */}
       </Col>
     ) : (
       <Col>
