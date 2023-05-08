@@ -7,16 +7,13 @@ const Header = () => {
   const navigate = useNavigate();
   const [openMenu, setOpenMenu] = useState(false);
 
-
   const NavMenu = ({ isInline = false }) => {
     return (
       <Menu
         id="header"
         mode={isInline ? "inline" : "horizontal"}
         onClick={({ key }) => {
-          if(key!=="search"){
-            navigate(key);
-          }
+          navigate(key);
         }}
         items={[
           {
@@ -25,14 +22,18 @@ const Header = () => {
             icon: <VideoCameraOutlined />,
           },
           {
-            label: "Ingresar / Registrarse",
-            key: "/Ingreso",
+            label: "Ingresar",
+            key: "/ingresar",
+          },
+          {
+            label: "Github",
+            key: "",
           },
         ]}
       ></Menu>
     );
   };
-
+  
   return (
     <header>
       <div id="header__hamburger">
@@ -46,16 +47,16 @@ const Header = () => {
         <NavMenu></NavMenu>
       </div>
       <Drawer
-        width={"80vw"}
+        width={"50vw"}
         open={openMenu}
-        placement="left"
+        placement="right"
         onClose={() => {
           setOpenMenu(false);
         }}
         closable={false}
         bodyStyle={{ backgroundColor: "#222222ff" }}
         id="header__drawer"
-      >
+        >
         <NavMenu isInline></NavMenu>
       </Drawer>
     </header>
