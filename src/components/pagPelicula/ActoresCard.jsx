@@ -5,7 +5,7 @@ const ActoresCard = (actor) => {
   const {name, profile_path, character} = {...actor.actor}
 
   return (
-    <Col className="actoresCard" span={4}>
+    <Col className="actoresCard" xs={12} sm={12} md={6} lg={4}>
       <div>
         <img
           className="actoresCard__img"

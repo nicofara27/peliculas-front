@@ -3,59 +3,78 @@ import Title from "antd/es/typography/Title";
 import React, { useEffect, useState } from "react";
 
 const Descripcion = (pelicula) => {
-  const {title, tagline, overview, poster_path, genres, release_date, runtime, budget} = {...pelicula.pelicula}
-  const imagen = `https://www.themoviedb.org/t/p/w440_and_h660_face${poster_path}`
-  const presupuesto = "$" + String(budget).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  const duracionPorcentaje = String((runtime/60).toFixed(2));
-  const duracion = duracionPorcentaje.charAt(0) + "h:" + (((runtime/60)%1)*60).toFixed(0) + "m";
-  const [generos, setGeneros] = useState([])
+  const {
+    title,
+    tagline,
+    overview,
+    poster_path,
+    genres,
+    release_date,
+    runtime,
+    budget,
+  } = { ...pelicula.pelicula };
+  const imagen = `https://www.themoviedb.org/t/p/w440_and_h660_face${poster_path}`;
+  const presupuesto =
+    "$" + String(budget).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const duracionPorcentaje = String((runtime / 60).toFixed(2));
+  const duracion =
+    duracionPorcentaje.charAt(0) +
+    "h:" +
+    (((runtime / 60) % 1) * 60).toFixed(0) +
+    "m";
+  const [generos, setGeneros] = useState([]);
 
-
-  useEffect(()=>{
-    if(genres !== undefined) {
-      setGeneros(genres)
+  useEffect(() => {
+    if (genres !== undefined) {
+      setGeneros(genres);
     }
-  },[pelicula])
+  }, [pelicula]);
 
   return (
     <Row id="seccionDescripcion">
-      <Col span={6}>
-        <img
-          className="peliculasImg"
-          src={imagen}
-          alt={title}
-        ></img>
+      <Col xs={24} sm={24} md={10} lg={6}>
+        <img className="peliculasImg" src={imagen} alt={title}></img>
       </Col>
-      <Col span={18} id="seccionDescripcion__datos">
+      <Col xs={24} sm={24} md={14} lg={18} id="seccionDescripcion__datos">
         <div className="seccionDescripcion__texto">
           <Title>{title}</Title>
           <p>{tagline}</p>
         </div>
         <div className="seccionDescripcion__texto">
-          <p>
-            {overview}
-          </p>
+          <p>{overview}</p>
         </div>
-          <Row className="seccionDescripcion__texto">
-            <Col span={3}>
-              <h3>Generos:</h3>
-            </Col>
-            {generos.map((genero)=><Col span={4} key={genero.id} className="seccionDescripcion__genero">
-              <p>{genero.name}</p>
-            </Col>)}
-            
-          </Row>
-          <Row id="seccionDescripcion__footer">
-            <Col span={9}>
-              <p>Fecha de estreno: {release_date}</p>
-            </Col>
-            <Col span={6}>
-              <p>Duracion: {duracion}</p>
-            </Col>
-            <Col span={9}>
-              <p>Presupuesto: {presupuesto}</p>
-            </Col>
-          </Row>
+        <Row className="seccionDescripcion__texto">
+          <Col xs={6} sm={5} md={5} lg={3}>
+            <h3>Generos:</h3>
+          </Col>
+          <Col xs={18} sm={19} md={19} lg={21}>
+            <Row justify="center">
+              {generos.map((genero) => (
+                <Col
+                  xs={12}
+                  sm={12}
+                  md={7}
+                  lg={4}
+                  key={genero.id}
+                  className="seccionDescripcion__genero"
+                >
+                  <p>{genero.name}</p>
+                </Col>
+              ))}
+            </Row>
+          </Col>
+        </Row>
+        <Row id="seccionDescripcion__footer">
+          <Col xs={8} sm={8} md={9} lg={9}>
+            <p>Fecha de estreno: {release_date}</p>
+          </Col>
+          <Col xs={7} sm={7} md={6} lg={6}>
+            <p>Duracion: {duracion}</p>
+          </Col>
+          <Col xs={9} sm={7} md={9} lg={9}>
+            <p>Presupuesto: {presupuesto}</p>
+          </Col>
+        </Row>
       </Col>
     </Row>
   );

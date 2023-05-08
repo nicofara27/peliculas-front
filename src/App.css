@@ -1,14 +1,15 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
+/* Header */
 #header {
   position: fixed;
   z-index: 10;
   width: 100%;
-  padding: .6rem 6rem;
+  padding: 1.25vh 5rem;
   background-color: #222222;
   justify-content: space-between;
   color: #13def0;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 #header::before {
@@ -16,6 +17,10 @@
 }
 #header::after {
   content: none;
+}
+.ant-menu-item:nth-child(2) {
+  margin-left: auto;
+  margin-right: 2.5rem;
 }
 
 .ant-menu-item {
@@ -26,12 +31,12 @@
   font-size: 2rem !important;
 }
 .ant-menu-item:nth-child(2) {
-font-size: 1.2rem;
-font-weight: normal;
-color: #ddd;
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: #ddd;
 }
 .ant-menu-item:hover {
-  color: #ddd !important;
+  color: #fff !important;
 }
 .ant-menu-item::after {
   border-bottom: none !important;
@@ -43,14 +48,14 @@ color: #ddd;
   background: #111111ff;
   color: #ddd;
   font-size: 2rem;
-  padding: 1rem 6rem;
+  padding: 1rem 5rem;
+  display: flex;
+  justify-content: space-between;
 }
 
-
-
+/* Pagina principal */
 #pagPrincipal {
-  background: #111;
-  padding: 6rem;
+  padding: 6rem 5rem;
   background-image: url("https://api-cinema-10d15.firebaseapp.com/static/media/bg.b54fb72f.jpg");
   background-position: 50%;
   background-size: cover;
@@ -61,19 +66,19 @@ color: #ddd;
   font-size: 1.8rem;
   color: #ddd;
 }
-.ant-radio-button-wrapper-checked {
-  background:#13def0 !important;
-  border-color:#13def0 !important;
+#buscadorContainer {
+  text-align: end;
 }
 
-#peliculas {
+/* Seccion lista peliculas */
+#listaPeliculas {
   margin: 2.5rem 0;
 }
 .peliculasImg {
   width: 100%;
 }
 .peliculasDesc {
-  height: 20vh;
+  height: 16vh;
   background: #000;
   color: #ddd;
   border-radius: 0 0 7px 7px;
@@ -81,14 +86,14 @@ color: #ddd;
 }
 .peliculasDesc__calificacion {
   display: flex;
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 .peliculasDesc__calificacion p {
   margin-bottom: 0;
 }
 .peliculasDesc__icon {
   color: #f5c518;
-  margin-top:  .1rem;
+  margin-top: 0.1rem;
   margin-right: 0.4rem;
 }
 .peliculasDesc h2 {
@@ -96,6 +101,7 @@ color: #ddd;
   font-weight: 600;
 }
 
+/* Seccion paginacion */
 #paginacion {
   text-align: center;
   padding: 1rem 0;
@@ -104,25 +110,58 @@ color: #ddd;
 .ant-pagination-item a {
   color: #fff !important;
   font-size: 1.3rem;
-  margin: 0 .5rem;
+  margin: 0 0.5rem;
 }
-.ant-pagination-item-active{
+.ant-pagination-item-active {
   background: #111111cc !important;
   border-color: #fff !important;
 }
-.ant-pagination-item-link{
+.ant-pagination-item-link {
   color: #fff !important;
-  
 }
 .ant-pagination-item-ellipsis {
   color: #fff !important;
-
 }
 
+/* Pagina de ingreso */
+#pagIngreso {
+  background: #111;
+  height: 85vh;
+  padding: 8rem 0;
+  background-image: url("https://api-cinema-10d15.firebaseapp.com/static/media/bg.b54fb72f.jpg");
+  background-position: 50%;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.formularioContainer {
+  background: #222222cc;
+  color: #ddd;
+  width: 30vw;
+  height: 60vh;
+  border-radius: 1rem;
+  /* padding: 1rem ; */
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.formulario {
+  width: 75%;
+}
+.ant-input {
+  color: #111;
+}
+.formulario__cambioBtn {
+  font-weight: bolder;
+}
+
+/* Pagina de pelicula */
 #pagPelicula {
-  padding:6rem 7rem;
+  padding: 6rem 5em;
 }
 
+/* Seccion descripcion */
 #seccionDescripcion {
   background: #222222bb;
   color: #ddd;
@@ -134,7 +173,7 @@ color: #ddd;
   flex-direction: column;
   justify-content: space-between;
 }
-#seccionDescripcion__datos h1{
+#seccionDescripcion__datos h1 {
   color: #13def0;
   margin: 0;
 }
@@ -142,7 +181,7 @@ color: #ddd;
   padding: 0 2rem;
 }
 .seccionDescripcion__texto:nth-child(1) p {
-  margin-bottom: .2rem;
+  margin-bottom: 0.2rem;
   font-style: italic;
 }
 .seccionDescripcion__texto:nth-child(3) {
@@ -151,10 +190,11 @@ color: #ddd;
 .seccionDescripcion__genero {
   background: #13def0;
   border-radius: 5px;
-  margin: 0 .1rem;
+  margin: 0 0.1rem;
   text-align: center;
 }
-.seccionDescripcion__genero p, h3 {
+.seccionDescripcion__genero p,
+h3 {
   margin: 0;
   font-size: 1.1rem;
 }
@@ -163,29 +203,29 @@ color: #ddd;
   padding: 1.5rem 0;
   text-align: center;
 }
-#seccionDescripcion__footer p{
+#seccionDescripcion__footer p {
   margin: 0;
-  font-size: 1.1rem ;
+  font-size: 1.1rem;
 }
 
-
+/* Seccion actores */
 #seccionActores {
   background: #ddd;
   padding: 2.5rem;
   font-size: 1.5rem;
 }
-.actoresCard__img{
+.actoresCard__img {
   width: 100%;
 }
 .actorCard__descripcion {
   background: #bbb;
   border-radius: 0 0 8px 8px;
-  padding: .5rem;
+  padding: 0.5rem;
   height: 5rem;
   text-align: center;
 }
 .actorCard__descripcion p {
-  margin: .2rem 0;
+  margin: 0.2rem 0;
 }
 #actoresBtnCont {
   margin-top: 2.5rem;
@@ -199,6 +239,7 @@ color: #ddd;
   color: #fff;
 }
 
+/* Seccion galeria */
 #seccionGaleria {
   background: #222222bb;
   padding: 2.5rem;
@@ -206,23 +247,143 @@ color: #ddd;
   color: #ddd;
 }
 
+/* Footer */
 #footer {
   text-align: center;
-  padding: 2.5rem 0;
+  padding: 6.2vh 0;
   background: #111;
   color: #ddd;
 }
 
-@media (max-width: 992px) {
+
+@media (min-width: 994px) {
+  #header__hamburger {
+    display: none;
+  }
+}
+
+/* Responsive para dispositivos MD */
+@media (min-width: 769px) and (max-width: 993px) {
+  /* Header */
+  #header__hamburger {
+    padding: 1rem 2.5rem;
+  }
+  #header {
+    position: relative;
+    padding: 0;
+  }
+  #header__menu {
+    display: none;
+  }
+
+  /* Pagina principal */
+  #pagPrincipal {
+    padding: 2.5rem;
+  }
+  #buscadorContainer {
+    text-align: start;
+    margin-top: 1rem;
+  }
+
+  /* Pagina ingreso */
+  #pagIngreso {
+    height: 79.5vh;
+    padding: 12rem 0;
+  }
+  .formularioContainer {
+    width: 55vw;
+    height: 45vh;
+  }
+
+  /* Pagina pelicula */
+  #pagPelicula {
+    padding: 2.5rem;
+  }
+  #seccionDescripcion__datos {
+    padding: 0;
+    padding-top: 1rem;
+  }
+  .seccionDescripcion__texto {
+    padding: 0 1rem;
+  }
+  .seccionDescripcion__genero {
+    margin-bottom: 0.2rem;
+  }
+
+  #seccionActores {
+    padding: 1rem;
+  }
+  .actorCard__descripcion {
+    height: 7rem;
+  }
+
+  #seccionGaleria {
+    padding: 1rem;
+  }
+}
+
+/* Responsive para dispositivos SM */
+@media (max-width: 768px) {
+  /* Header */
   #header__menu {
     display: none;
   }
   #header {
-    width: 75%;
+    position: relative;
+    padding: 0;
   }
-}
-@media (min-width: 992px) {
   #header__hamburger {
-    display: none;
+    padding: 1.5rem;
+  }
+
+  /* Pagina principal */
+  #pagPrincipal {
+    padding: 2.5rem 1.5rem;
+  }
+  .ant-radio-button-wrapper {
+    padding-inline: 5px !important;
+  }
+  #buscadorContainer {
+    text-align: start;
+    margin-top: 1rem;
+  }
+
+  /* Pagina ingreso */
+  #pagIngreso {
+    height: 77.7vh;
+    padding: 5rem 0;
+  }
+  .formularioContainer {
+    width: 75vw;
+    height: 55vh;
+  }
+
+  /* Pagina pelicula */
+  #pagPelicula {
+    padding: 1.5rem;
+  }
+  #seccionDescripcion__datos {
+    padding: 0;
+    padding-top: 1rem;
+  }
+  .seccionDescripcion__texto {
+    padding: 0 1rem;
+  }
+  .seccionDescripcion__genero {
+    margin-bottom: 0.2rem;
+  }
+  #seccionDescripcion__footer {
+    padding: 1rem 0.2rem;
+  }
+
+  #seccionActores {
+    padding: 1rem;
+  }
+  .actorCard__descripcion {
+    height: 7rem;
+  }
+
+  #seccionGaleria {
+    padding: 1rem;
   }
 }
