@@ -23,8 +23,12 @@ const Header = () => {
   const NavBar = () => {
     return (
       <nav>
-        <NavLink onClick={cerrarDrawer} to="">Mi lista</NavLink>
-        <NavLink onClick={cerrarDrawer} to="">Github</NavLink>
+        <NavLink onClick={cerrarDrawer} to="">
+          Mi lista
+        </NavLink>
+        <NavLink onClick={cerrarDrawer} to="">
+          Github
+        </NavLink>
         {usuarioConectado ? (
           <Popconfirm
             title="Cerrar sesion"
@@ -33,12 +37,14 @@ const Header = () => {
             okText="Yes"
             cancelText="No"
           >
-            <Button id="btnCerrarSesion" onClick={cerrarDrawer} danger type="primary">
+            <Button id="btnCerrarSesion" danger type="primary">
               Cerrar sesion
             </Button>
           </Popconfirm>
         ) : (
-          <NavLink onClick={cerrarDrawer} to="/ingresar">Ingresar</NavLink>
+          <NavLink onClick={cerrarDrawer} to="/ingresar">
+            Ingresar
+          </NavLink>
         )}
       </nav>
     );
@@ -66,12 +72,18 @@ const Header = () => {
         InfoPelis
       </NavLink>
       <div id="navBarPc">
-      <NavBar></NavBar>
+        <NavBar></NavBar>
       </div>
       <Button onClick={mostrarDrawer} id="btnHamburguesa">
         <MenuOutlined />
       </Button>
-      <Drawer placement="right" width={250} open={abrirDrawer} closable={false} onClose={cerrarDrawer}>
+      <Drawer
+        placement="right"
+        width={250}
+        open={abrirDrawer}
+        closable={false}
+        onClose={cerrarDrawer}
+      >
         <NavBar></NavBar>
       </Drawer>
     </header>
