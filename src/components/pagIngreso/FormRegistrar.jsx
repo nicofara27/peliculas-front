@@ -1,19 +1,45 @@
 import React from "react";
-import { Button, Form, Input, Typography } from "antd";
-import { Link } from "react-router-dom";
+import { Button, Form, Input, Typography, message } from "antd";
+import { crearUsuario } from "../helpers/helpers";
+import { redirect, useNavigate } from "react-router-dom";
 
 const FormRegistrar = ({ ingresar, setIngresar }) => {
+  const [form] = Form.useForm();
   const { Text, Title } = Typography;
+  const navegacion = useNavigate();
+  const [messageApi, contextHolder] = message.useMessage();
 
   const cambioIngreso = () => {
     setIngresar(!ingresar);
   };
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "La cuenta se creo correctamente",
+    });
   };
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+  const fail = () => {
+    messageApi.open({
+      type: "error",
+      content: "No se pudo crear la cuenta",
+    });
+  };
+
+  const onFinish = (datos) => {
+    crearUsuario(datos).then((respuesta) => {
+      console.log(respuesta.status)
+      if (respuesta.status === 201) {
+        success();
+        form.resetFields();
+
+        localStorage.setItem("usuarioActivo", JSON.stringify(datos));
+
+        navegacion("/");
+      } else {
+        fail();
+      }
+    });
   };
 
   return (
@@ -24,12 +50,11 @@ const FormRegistrar = ({ ingresar, setIngresar }) => {
         layout="vertical"
         name="ingresar"
         onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
         <Form.Item
           label="Usuario"
-          name="usuario"
+          name="nombreUsuario"
           rules={[
             {
               required: true,
@@ -45,7 +70,7 @@ const FormRegistrar = ({ ingresar, setIngresar }) => {
             },
           ]}
         >
-          <Input placeholder="juan.perez@gmail.com" />
+          <Input placeholder="juanPerez" />
         </Form.Item>
         <Form.Item
           label="Email"
@@ -57,11 +82,11 @@ const FormRegistrar = ({ ingresar, setIngresar }) => {
             },
             {
               min: 15,
-              message: "La contraseña debe tener mas de 15 caracteres",
+              message: "El email debe tener mas de 15 caracteres",
             },
             {
               max: 80,
-              message: "La contraseña debe tener menos de 80 caracteres",
+              message: "El email debe tener menos de 80 caracteres",
             },
           ]}
         >
@@ -96,7 +121,7 @@ const FormRegistrar = ({ ingresar, setIngresar }) => {
           }}
         >
           <Button type="primary" htmlType="submit">
-            Ingresar
+            Registrarse
           </Button>
         </Form.Item>
       </Form>
