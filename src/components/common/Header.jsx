@@ -1,63 +1,78 @@
-import { Drawer, Input, Menu } from "antd";
-import { useState } from "react";
+import { Button, Drawer, Input, Menu, Popconfirm } from "antd";
+import { useEffect, useState } from "react";
 import { MenuOutlined, VideoCameraOutlined } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  let [usuarioConectado, setUsuarioConectado] = useState(false);
+  let usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo")) || [];
+  const [abrirDrawer, setAbrirDrawer] = useState(false);
   const navigate = useNavigate();
-  const [openMenu, setOpenMenu] = useState(false);
 
-  const NavMenu = ({ isInline = false }) => {
+  useEffect(() => {
+    if (usuarioActivo.length !== 0) {
+      setUsuarioConectado(true);
+      console.log(usuarioConectado);
+    }
+  }, [usuarioActivo]);
+  useEffect(() => {
+    console.log(usuarioActivo);
+    console.log(usuarioConectado);
+  }, []);
+
+  const NavBar = () => {
     return (
-      <Menu
-        id="header"
-        mode={isInline ? "inline" : "horizontal"}
-        onClick={({ key }) => {
-          navigate(key);
-        }}
-        items={[
-          {
-            label: "Peliculas",
-            key: "/",
-            icon: <VideoCameraOutlined />,
-          },
-          {
-            label: "Ingresar",
-            key: "/ingresar",
-          },
-          {
-            label: "Github",
-            key: "",
-          },
-        ]}
-      ></Menu>
+      <nav>
+        <NavLink onClick={cerrarDrawer} to="">Mi lista</NavLink>
+        <NavLink onClick={cerrarDrawer} to="">Github</NavLink>
+        {usuarioConectado ? (
+          <Popconfirm
+            title="Cerrar sesion"
+            description="¿Estas seguro que deseas cerrar sesion?"
+            onConfirm={cerrarSesion}
+            okText="Yes"
+            cancelText="No"
+          >
+            <Button onClick={cerrarDrawer} danger type="primary">
+              Cerrar sesion
+            </Button>
+          </Popconfirm>
+        ) : (
+          <NavLink onClick={cerrarDrawer} to="/ingresar">Ingresar</NavLink>
+        )}
+      </nav>
     );
   };
-  
+
+  const mostrarDrawer = () => {
+    setAbrirDrawer(true);
+  };
+  const cerrarDrawer = () => {
+    setAbrirDrawer(false);
+  };
+
+  const cerrarSesion = () => {
+    setUsuarioConectado(false);
+    localStorage.removeItem("usuarioActivo");
+    localStorage.removeItem("usuarioNoAdmin");
+    console.log(usuarioConectado);
+    // navigate("/");
+  };
+
   return (
-    <header>
-      <div id="header__hamburger">
-        <MenuOutlined
-          onClick={() => {
-            setOpenMenu(true);
-          }}
-        />
+    <header id="header">
+      <NavLink id="logo" to="/">
+        <VideoCameraOutlined />
+        InfoPelis
+      </NavLink>
+      <div id="navBarPc">
+      <NavBar></NavBar>
       </div>
-      <div id="header__menu">
-        <NavMenu></NavMenu>
-      </div>
-      <Drawer
-        width={"50vw"}
-        open={openMenu}
-        placement="right"
-        onClose={() => {
-          setOpenMenu(false);
-        }}
-        closable={false}
-        bodyStyle={{ backgroundColor: "#222222ff" }}
-        id="header__drawer"
-        >
-        <NavMenu isInline></NavMenu>
+      <Button onClick={mostrarDrawer} id="btnHamburguesa">
+        <MenuOutlined />
+      </Button>
+      <Drawer placement="right" width={250} open={abrirDrawer} closable={false} onClose={cerrarDrawer}>
+        <NavBar></NavBar>
       </Drawer>
     </header>
   );
