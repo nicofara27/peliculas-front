@@ -33,7 +33,7 @@ const Header = () => {
             okText="Yes"
             cancelText="No"
           >
-            <Button onClick={cerrarDrawer} danger type="primary">
+            <Button id="btnCerrarSesion" onClick={cerrarDrawer} danger type="primary">
               Cerrar sesion
             </Button>
           </Popconfirm>

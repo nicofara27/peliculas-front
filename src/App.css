@@ -49,6 +49,9 @@ nav a:hover {
 #btnHamburguesa:hover {
   border-color: #ddd;
 }
+#btnCerrarSesion {
+  margin-left: 1rem;
+}
 /* Pagina principal */
 #pagPrincipal {
   padding: 2.5rem 5rem;
