@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Actores from "../pagPelicula/Actores";
-import Descripcion from "../pagPelicula/Descripcion";
-import Galeria from "../pagPelicula/Galeria";
+import Actores from "./pagPelicula/Actores";
+import Descripcion from "./pagPelicula/Descripcion";
+import Galeria from "./pagPelicula/Galeria";
 import { useParams } from "react-router-dom";
 
 const PagPelicula = () => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Filtros from "../pagPrincipal/Filtros";
-import ListaPeliculas from "../pagPrincipal/ListaPeliculas";
-import Paginacion from "../pagPrincipal/Paginacion";
+import Filtros from "./pagPrincipal/Filtros";
+import ListaPeliculas from "./pagPrincipal/ListaPeliculas";
+import Paginacion from "./pagPrincipal/Paginacion";
 
 const PagPrincipal = () => {
   const [peliculas, setPeliculas] = useState([]);

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Form, Input, Typography, message } from "antd";
 import { useNavigate } from "react-router-dom";
-import { login } from "../helpers/helpers";
+import { login } from "../../helpers/helpers";
 
 const FormIngresar = ({ ingresar, setIngresar }) => {
   const { Text, Title } = Typography;

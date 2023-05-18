@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Form, Input, Typography, message } from "antd";
-import { crearUsuario } from "../helpers/helpers";
+import { crearUsuario } from "../../helpers/helpers";
 import { redirect, useNavigate } from "react-router-dom";
 
 const FormRegistrar = ({ ingresar, setIngresar }) => {

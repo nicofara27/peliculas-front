@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import FormIngresar from '../pagIngreso/FormIngresar';
-import FormRegistrar from '../pagIngreso/FormRegistrar';
+import FormIngresar from './pagIngreso/FormIngresar';
+import FormRegistrar from './pagIngreso/FormRegistrar';
 
 const PagIngreso = () => {
     let [ingresar, setIngresar] = useState(true);
