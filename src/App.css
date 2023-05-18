@@ -2,64 +2,66 @@
 
 /* Header */
 #header {
-  position: fixed;
-  z-index: 10;
-  width: 100%;
-  padding: 1.25vh 5rem;
-  background-color: #222222;
-  justify-content: space-between;
-  color: #13def0;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-#header::before {
-  content: none;
-}
-#header::after {
-  content: none;
-}
-.ant-menu-item:nth-child(2) {
-  margin-left: auto;
-  margin-right: 2.5rem;
-}
-
-.ant-menu-item {
-  padding-inline: 0 !important;
-}
-
-.ant-menu-item-icon {
-  font-size: 2rem !important;
-}
-.ant-menu-item:nth-child(2) {
-  font-size: 1.2rem;
-  font-weight: normal;
-  color: #ddd;
-}
-.ant-menu-item:hover {
-  color: #fff !important;
-}
-.ant-menu-item::after {
-  border-bottom: none !important;
-}
-.ant-menu-item-selected {
-  color: #ddd;
-}
-#header__hamburger {
-  background: #111111ff;
-  color: #ddd;
-  font-size: 2rem;
-  padding: 1rem 5rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  background-color: #222222;
+  padding: 2vh 5rem;
+}
+#logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #13def0;
+}
+#logo:hover {
+  color: #13def0b9;
+}
+#logo:hover .anticon-video-camera {
+  color: #13def0b9;
 }
 
+.anticon-video-camera {
+  font-size: 2.5rem;
+  color: #13def0;
+  margin-right: 0.5rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+nav a:hover {
+  color: #ddd;
+}
+#btnHamburguesa {
+  display: none;
+  color: #ddd;
+  background: #222;
+}
+#btnHamburguesa:hover {
+  border-color: #ddd;
+}
 /* Pagina principal */
 #pagPrincipal {
-  padding: 6rem 5rem;
+  padding: 2.5rem 5rem;
   background-image: url("https://api-cinema-10d15.firebaseapp.com/static/media/bg.b54fb72f.jpg");
   background-position: 50%;
   background-size: cover;
   background-attachment: fixed;
+}
+#filtros {
+  color: #111 !important;
+}
+.ant-radio-button-wrapper  {
+  background: #000;
 }
 #filtrosTitulo {
   margin: 0;
@@ -127,7 +129,7 @@
 #pagIngreso {
   background: #111;
   height: 85vh;
-  padding: 8rem 0;
+  padding: 6rem 0;
   background-image: url("https://api-cinema-10d15.firebaseapp.com/static/media/bg.b54fb72f.jpg");
   background-position: 50%;
   background-size: cover;
@@ -158,7 +160,7 @@
 
 /* Pagina de pelicula */
 #pagPelicula {
-  padding: 6rem 5em;
+  padding: 2.5rem 5em;
 }
 
 /* Seccion descripcion */
@@ -256,24 +258,35 @@ h3 {
 }
 
 
-@media (min-width: 994px) {
-  #header__hamburger {
-    display: none;
-  }
-}
-
 /* Responsive para dispositivos MD */
 @media (min-width: 769px) and (max-width: 993px) {
   /* Header */
-  #header__hamburger {
-    padding: 1rem 2.5rem;
-  }
   #header {
-    position: relative;
-    padding: 0;
-  }
-  #header__menu {
+    padding: 2vh 5vw;
+  } 
+  #navBarPc{
     display: none;
+  } 
+  nav {
+    background: #222;
+    flex-direction: column;
+    align-items: start;
+
+  }
+  .ant-drawer-body {
+    background: #222;
+    padding-top: 3vh !important;
+    padding-left: 5vw !important;
+  }
+  nav a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    letter-spacing: .07rem;
+  }
+  #btnHamburguesa {
+    display: inline;
   }
 
   /* Pagina principal */
@@ -325,20 +338,37 @@ h3 {
 /* Responsive para dispositivos SM */
 @media (max-width: 768px) {
   /* Header */
-  #header__menu {
-    display: none;
-  }
   #header {
-    position: relative;
-    padding: 0;
+    padding: 2vh 5vw;
+  } 
+  #navBarPc{
+    display: none;
+  } 
+  nav {
+    background: #222;
+    flex-direction: column;
+    align-items: start;
+
   }
-  #header__hamburger {
-    padding: 1.5rem;
+  .ant-drawer-body {
+    background: #222;
+    padding-top: 3vh !important;
+    padding-left: 5vw !important;
+  }
+  nav a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    letter-spacing: .07rem;
+  }
+  #btnHamburguesa {
+    display: inline;
   }
 
   /* Pagina principal */
   #pagPrincipal {
-    padding: 2.5rem 1.5rem;
+    padding: 1.5  rem .6rem;
   }
   .ant-radio-button-wrapper {
     padding-inline: 5px !important;
