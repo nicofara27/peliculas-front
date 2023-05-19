@@ -12,6 +12,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    {/* Modifica algunos de los estilos de antd */}
     <ConfigProvider
     theme={{
       token: {

@@ -8,15 +8,17 @@ const FormIngresar = ({ ingresar, setIngresar }) => {
   const navegacion = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
 
+  // Funcion que cambia entre el formulario de ingresar por el de registro
   const cambioRegistro = () => {
     setIngresar(!ingresar);
   };
 
+  // Funcion para iniciar sesion
   const onFinish = (datos) => {
     login(datos).then((respuesta) => {
+      
       if (respuesta.status === 200) {
         localStorage.setItem("usuarioActivo", JSON.stringify(datos));
-
         navegacion("/");
       } else {
         messageApi.open({

@@ -3,17 +3,19 @@ import { StarFilled } from "@ant-design/icons";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CardPelicula = (pelicula) => {
+const CardPelicula = ({ pelicula }) => {
   const { title, vote_average, poster_path, genre_ids, id } = {
-    ...pelicula.pelicula,
+    ...pelicula,
   };
 
   const imagen = `https://www.themoviedb.org/t/p/w440_and_h660_face${poster_path}`;
+  // Redondea el valor de la puntuacion
   let puntuacion = vote_average.toFixed(1);
   if (puntuacion.toString().split(".")[1] === "0") {
     puntuacion = puntuacion.toString().split(".")[0];
   }
 
+  // Comprueba el codigo que viene de la api con la listaGeneros para definir a que generos pertenece la pelicula
   let generosPelicula = "";
   const listaGeneros = [
     {
@@ -93,7 +95,7 @@ const CardPelicula = (pelicula) => {
       name: "Western",
     },
   ];
-   genre_ids.forEach((idGenero) => {
+  genre_ids.forEach((idGenero) => {
     let generoEncontrado = listaGeneros.find(
       (genero) => genero.id === idGenero
     );
@@ -103,7 +105,7 @@ const CardPelicula = (pelicula) => {
       generosPelicula += ", " + generoEncontrado.name;
     }
   });
-  
+
   return (
     <Col lg={5} md={11} sm={12}>
       <Link to={`/${id}`}>

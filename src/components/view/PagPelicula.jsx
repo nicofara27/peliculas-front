@@ -70,6 +70,7 @@ const PagPelicula = () => {
     setImagenFondo(`https://image.tmdb.org/t/p/w1280${pelicula.backdrop_path}`);
   }, [pelicula]);
 
+  // Establece el state con las imagenes para el carousel
   useEffect(()=> {
     let listaImagenes = imagenes.map((imagen)=>{
       return {original: `https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${imagen.file_path}`,

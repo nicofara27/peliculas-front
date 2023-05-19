@@ -14,8 +14,10 @@ const Descripcion = (pelicula) => {
     budget,
   } = { ...pelicula.pelicula };
   const imagen = `https://www.themoviedb.org/t/p/w440_and_h660_face${poster_path}`;
+  // Convierte el presupuesto en un numero con comas y le agrega el simbolo $, ej: 100000 a $100,000
   const presupuesto =
     "$" + String(budget).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    // Convierte la duracion de minutos a un formato con horas y minutos, ej: 100 a 1h40m
   const duracionPorcentaje = String((runtime / 60).toFixed(2));
   const duracion =
     duracionPorcentaje.charAt(0) +
@@ -24,6 +26,7 @@ const Descripcion = (pelicula) => {
     "m";
   const [generos, setGeneros] = useState([]);
 
+  
   useEffect(() => {
     if (genres !== undefined) {
       setGeneros(genres);

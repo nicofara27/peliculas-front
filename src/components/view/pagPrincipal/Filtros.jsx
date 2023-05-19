@@ -35,6 +35,7 @@ const Filtros = ({
     setBuscar("");
   }
 
+  // Condicional que maqueta la lista de flitros o el nombre de la pelicula buscada
   const componenteCondicional =
     buscar === "" ? (
       <Col>

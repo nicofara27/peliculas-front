@@ -7,7 +7,7 @@ const Paginacion = ({ pagina, setPagina, buscar }) => {
 
   // Funcion para cambiar de pagina
   const cambiarPagina = (pag) => {
-    if(buscar === "") {
+    if (buscar === "") {
       setPagina(pag);
       navigate(`/pagina/${pag}`);
     } else {

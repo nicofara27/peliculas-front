@@ -5,7 +5,7 @@ import FormRegistrar from './pagIngreso/FormRegistrar';
 const PagIngreso = () => {
     let [ingresar, setIngresar] = useState(true);
 
-
+    //Condicional que maqueta el formulario de ingresar o registrar
     const formulario = ingresar ? (
         <FormIngresar ingresar={ingresar} setIngresar={setIngresar}></FormIngresar>
     ) : (

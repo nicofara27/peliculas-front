@@ -1,24 +1,26 @@
 import React from "react";
 import { Button, Form, Input, Typography, message } from "antd";
 import { crearUsuario } from "../../helpers/helpers";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const FormRegistrar = ({ ingresar, setIngresar }) => {
-  const [form] = Form.useForm();
   const { Text, Title } = Typography;
   const navegacion = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
 
+  // Funcion para cambiar entre el formulario de registrar por el de iniciar sesion
   const cambioIngreso = () => {
     setIngresar(!ingresar);
   };
 
+  // Mensaje que aparece cuando se crea correctamente el usuario
   const success = () => {
     messageApi.open({
       type: "success",
       content: "La cuenta se creo correctamente",
     });
   };
+    // Mensaje que aparece cuando hubo un error al crear el usuario
   const fail = () => {
     messageApi.open({
       type: "error",
@@ -26,15 +28,13 @@ const FormRegistrar = ({ ingresar, setIngresar }) => {
     });
   };
 
+  // Funcion para crear usuario
   const onFinish = (datos) => {
     crearUsuario(datos).then((respuesta) => {
-      console.log(respuesta.status)
+
       if (respuesta.status === 201) {
         success();
-        form.resetFields();
-
         localStorage.setItem("usuarioActivo", JSON.stringify(datos));
-
         navegacion("/");
       } else {
         fail();

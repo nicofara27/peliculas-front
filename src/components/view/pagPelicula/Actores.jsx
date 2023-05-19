@@ -6,8 +6,10 @@ const Actores = (listaActores) => {
   const [actores, setActores] = useState([]);
   let [mostrarTodos, setMostrarTodos] = useState(false);
 
+  // Actualiza la lista de actores acorde al state mostrarTodos, si es false muestra lista reducida
   useEffect(() => {
     if (listaActores !== undefined) {
+      // Por defecto muestra 12
       if (!mostrarTodos) {
         setActores(listaActores.actores.slice(0, 12));
       } else {
@@ -16,6 +18,7 @@ const Actores = (listaActores) => {
     }
   }, [listaActores, mostrarTodos]);
 
+  // Funcion que cambia el state de mostrarTodos
    const mostrarMas = () => {
     setMostrarTodos(!mostrarTodos)
    }

@@ -1,4 +1,4 @@
-import { Button, Drawer, Input, Menu, Popconfirm } from "antd";
+import { Button, Drawer, Popconfirm } from "antd";
 import { useEffect, useState } from "react";
 import { MenuOutlined, VideoCameraOutlined } from "@ant-design/icons";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -9,16 +9,28 @@ const Header = () => {
   const [abrirDrawer, setAbrirDrawer] = useState(false);
   const navigate = useNavigate();
 
+  // Si hay un usuario en el ls cambia el state usuarioConectado a true
   useEffect(() => {
     if (usuarioActivo.length !== 0) {
       setUsuarioConectado(true);
-      console.log(usuarioConectado);
     }
   }, [usuarioActivo]);
-  useEffect(() => {
-    console.log(usuarioActivo);
-    console.log(usuarioConectado);
-  }, []);
+
+  // Funciones para abrir y cerrar el drawer que contiene el navbar en responsive
+  const mostrarDrawer = () => {
+    setAbrirDrawer(true);
+  };
+  const cerrarDrawer = () => {
+    setAbrirDrawer(false);
+  };
+
+  // Funcion para cerrar sesion de usuario
+  const cerrarSesion = () => {
+    setUsuarioConectado(false);
+    localStorage.removeItem("usuarioActivo");
+    navigate("/");
+    cerrarDrawer()
+  };
 
   const NavBar = () => {
     return (
@@ -48,21 +60,6 @@ const Header = () => {
         )}
       </nav>
     );
-  };
-
-  const mostrarDrawer = () => {
-    setAbrirDrawer(true);
-  };
-  const cerrarDrawer = () => {
-    setAbrirDrawer(false);
-  };
-
-  const cerrarSesion = () => {
-    setUsuarioConectado(false);
-    localStorage.removeItem("usuarioActivo");
-    localStorage.removeItem("usuarioNoAdmin");
-    console.log(usuarioConectado);
-    // navigate("/");
   };
 
   return (
