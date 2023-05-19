@@ -107,7 +107,7 @@ const CardPelicula = ({ pelicula }) => {
   });
 
   return (
-    <Col lg={5} md={11} sm={12}>
+    <Col lg={5} md={11} sm={12} className="cardPelicula">
       <Link to={`/${id}`}>
         <div>
           <img className="peliculasImg" src={imagen} alt={title} />

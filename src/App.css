@@ -82,6 +82,14 @@ nav a:hover {
 #listaPeliculas {
   margin: 2.5rem 0;
 }
+.cardPelicula { 
+box-shadow: 1px 7px 26px 0px #333;
+-webkit-box-shadow: 1px 7px 26px 0px #333;
+-moz-box-shadow: 1px 7px 26px 0px #333;
+}
+.cardPelicula:hover {
+  transform: scale(1.02) ;
+}
 .peliculasImg {
   width: 100%;
 }
