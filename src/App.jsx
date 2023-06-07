@@ -7,6 +7,7 @@ import PagPelicula from "./components/view/PagPelicula";
 import PagPrincipal from "./components/view/PagPrincipal";
 import PagIngreso from "./components/view/PagIngreso";
 import { ConfigProvider } from "antd";
+import PagListaPeliculas from "./components/view/PagListaPeliculas";
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
         <Route exact path="/ingresar" element={<PagIngreso />}></Route>
         <Route exact path="/registro" element={<PagIngreso />}></Route>
         <Route exact path="/:id" element={<PagPelicula />}></Route>
+        <Route exact path="/milista" element={<PagListaPeliculas />}></Route>
       </Routes>
       <Footer></Footer>
       </ConfigProvider>
