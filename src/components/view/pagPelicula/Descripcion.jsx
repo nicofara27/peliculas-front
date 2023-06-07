@@ -40,17 +40,27 @@ const Descripcion = ({ pelicula }) => {
   }, [pelicula]);
 
   useEffect(() => {
-    listarPeliculas(nombreUsuario).then((lista) => {
-      if (lista.find((pelicula) => pelicula.nombrePelicula === title)) {
-        setPeliuclaEnLista(true);
-      } else {
-        setPeliuclaEnLista(false);
-      }
-    });
-  }, [pelicula]);
+    if(!nombreUsuario) {
+      listarPeliculas(nombreUsuario).then((lista) => {
+        if (lista.find((pelicula) => pelicula.nombrePelicula === title)) {
+          setPeliuclaEnLista(true);
+        } else {
+          setPeliuclaEnLista(false);
+        }
+      });
+    }
+    }, [pelicula]);
 
   const showModal = () => {
-    setIsModalOpen(true);
+    console.log(nombreUsuario)
+    if (!nombreUsuario) {
+      setIsModalOpen(true);
+    } else {
+      messageApi.open({
+        type: "error",
+        content: "Inicia sesion para poder agregar peliculas",
+      });
+    }
   };
   const handleCancel = () => {
     setIsModalOpen(false);
