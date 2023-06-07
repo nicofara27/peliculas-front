@@ -53,7 +53,9 @@ const Tabla = ({ usuario }) => {
   };
 
   useEffect(() => {
-    listarPeliculas(usuario).then((lista) => setListaPeliculas(lista));
+    if(!usuario) {
+      listarPeliculas(usuario).then((lista) => setListaPeliculas(lista));
+    }
   }, []);
 
   return (
