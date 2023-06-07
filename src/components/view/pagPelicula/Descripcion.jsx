@@ -1,8 +1,14 @@
-import { Col, Row } from "antd";
+import { Button, Col, Modal, Rate, Row, message } from "antd";
 import Title from "antd/es/typography/Title";
 import React, { useEffect, useState } from "react";
+import { agregarALista, listarPeliculas } from "../../helpers/helpers";
 
-const Descripcion = (pelicula) => {
+const Descripcion = ({ pelicula }) => {
+  const nombreUsuario = JSON.parse(localStorage.getItem("usuarioActivo")) || [];
+  const [peliculaEnLista, setPeliuclaEnLista] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [messageApi, contextHolder] = message.useMessage();
+  let [score, setScore] = useState(0);
   const {
     title,
     tagline,
@@ -12,12 +18,13 @@ const Descripcion = (pelicula) => {
     release_date,
     runtime,
     budget,
-  } = { ...pelicula.pelicula };
-  const imagen = `https://www.themoviedb.org/t/p/w440_and_h660_face${poster_path}`;
+    id,
+  } = { ...pelicula };
+  const img = `https://www.themoviedb.org/t/p/w440_and_h660_face${poster_path}`;
   // Convierte el presupuesto en un numero con comas y le agrega el simbolo $, ej: 100000 a $100,000
   const presupuesto =
     "$" + String(budget).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    // Convierte la duracion de minutos a un formato con horas y minutos, ej: 100 a 1h40m
+  // Convierte la duracion de minutos a un formato con horas y minutos, ej: 100 a 1h40m
   const duracionPorcentaje = String((runtime / 60).toFixed(2));
   const duracion =
     duracionPorcentaje.charAt(0) +
@@ -26,22 +33,93 @@ const Descripcion = (pelicula) => {
     "m";
   const [generos, setGeneros] = useState([]);
 
-  
   useEffect(() => {
     if (genres !== undefined) {
       setGeneros(genres);
     }
   }, [pelicula]);
 
+  useEffect(() => {
+    listarPeliculas(nombreUsuario).then((lista) => {
+      if (lista.find((pelicula) => pelicula.nombrePelicula === title)) {
+        setPeliuclaEnLista(true);
+      } else {
+        setPeliuclaEnLista(false);
+      }
+    });
+  }, [pelicula]);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  const mensajePelicula = () => {
+    messageApi.open({
+      type: "success",
+      content: "Se agrego correctamente a la lista",
+    });
+  };
+
+  const agregarPelicula = () => {
+    const pelicula = {
+      key: id,
+      imagen: img,
+      nombrePelicula: title,
+      puntuacion: score,
+    };
+    agregarALista(nombreUsuario, pelicula);
+    setPeliuclaEnLista(true);
+    setIsModalOpen(false);
+    mensajePelicula();
+  };
+
+  const btnCondicional = peliculaEnLista ? (
+    <Button id="seccionDescripcion__btn" disabled>
+      Pelicula agregada
+    </Button>
+  ) : (
+    <Button id="seccionDescripcion__btn" onClick={showModal}>
+      Agregar a mi lista
+    </Button>
+  );
+
   return (
     <Row id="seccionDescripcion">
+      {contextHolder}
       <Col xs={24} sm={24} md={10} lg={6}>
-        <img className="peliculasImg" src={imagen} alt={title}></img>
+        <img className="peliculasImg" src={img} alt={title}></img>
       </Col>
       <Col xs={24} sm={24} md={14} lg={18} id="seccionDescripcion__datos">
         <div className="seccionDescripcion__texto">
           <Title>{title}</Title>
           <p>{tagline}</p>
+        </div>
+        <div className="seccionDescripcion__texto">
+          {btnCondicional}
+          <Modal
+            title="Puntuacion"
+            open={isModalOpen}
+            onOk={agregarPelicula}
+            onCancel={handleCancel}
+            footer={[
+              <Button key="cancelar" onClick={handleCancel}>
+                Cancelar
+              </Button>,
+              <Button key="agregar" type="primary" onClick={agregarPelicula}>
+                Agregar
+              </Button>,
+            ]}
+          >
+            <Rate
+              allowHalf
+              onChange={(value) => {
+                setScore(value);
+              }}
+              value={score}
+            />
+          </Modal>
         </div>
         <div className="seccionDescripcion__texto">
           <p>{overview}</p>
