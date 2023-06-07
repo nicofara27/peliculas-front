@@ -29,13 +29,13 @@ const Header = () => {
     setUsuarioConectado(false);
     localStorage.removeItem("usuarioActivo");
     navigate("/");
-    cerrarDrawer()
+    cerrarDrawer();
   };
 
   const NavBar = () => {
     return (
       <nav>
-        <NavLink onClick={cerrarDrawer} to="">
+        <NavLink onClick={cerrarDrawer} to="/milista">
           Mi lista
         </NavLink>
         <NavLink onClick={cerrarDrawer} to="">
@@ -46,7 +46,7 @@ const Header = () => {
             title="Cerrar sesion"
             description="¿Estas seguro que deseas cerrar sesion?"
             onConfirm={cerrarSesion}
-            okText="Yes"
+            okText="Si"
             cancelText="No"
           >
             <Button id="btnCerrarSesion" danger type="primary">
