@@ -52,7 +52,6 @@ const Descripcion = ({ pelicula }) => {
     }, [pelicula]);
 
   const showModal = () => {
-    console.log(nombreUsuario)
     if (!nombreUsuario) {
       setIsModalOpen(true);
     } else {

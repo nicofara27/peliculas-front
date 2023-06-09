@@ -67,7 +67,6 @@ export const agregarALista = async (nombreUsuario, pelicula) => {
 export const eliminarDeLista = async (nombreUsuario, peliculaAEliminar) => {
   try {
     const key = peliculaAEliminar.key.toString();
-    console.log(peliculaAEliminar);
     const respuesta = await fetch(URL + nombreUsuario + "/" + key, {
       method: "PUT",
       headers: {
