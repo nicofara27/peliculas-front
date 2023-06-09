@@ -16,9 +16,8 @@ const FormIngresar = ({ ingresar, setIngresar }) => {
   // Funcion para iniciar sesion
   const onFinish = (datos) => {
     login(datos).then((respuesta) => {
-      
       if (respuesta.status === 200) {
-        localStorage.setItem("usuarioActivo", JSON.stringify(datos));
+        localStorage.setItem("usuarioActivo", JSON.stringify(respuesta.nombre));
         navegacion("/");
       } else {
         messageApi.open({
@@ -107,3 +106,4 @@ const FormIngresar = ({ ingresar, setIngresar }) => {
 };
 
 export default FormIngresar;
+
