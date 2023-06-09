@@ -30,11 +30,11 @@ const FormRegistrar = ({ ingresar, setIngresar }) => {
 
   // Funcion para crear usuario
   const onFinish = (datos) => {
+    datos.lista=[]
     crearUsuario(datos).then((respuesta) => {
-
       if (respuesta.status === 201) {
         success();
-        localStorage.setItem("usuarioActivo", JSON.stringify(datos));
+        localStorage.setItem("usuarioActivo", JSON.stringify(datos.nombreUsuario));
         navegacion("/");
       } else {
         fail();
