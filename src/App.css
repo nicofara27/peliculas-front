@@ -190,6 +190,10 @@ nav a:hover {
   background: #222222bb;
   color: #ddd;
 }
+ /* .peliculasImg {
+    height: 100%;
+    object-fit: cover;
+  } */
 #seccionDescripcion__datos {
   padding-top: 2rem;
   font-size: 1.1rem;
@@ -382,7 +386,10 @@ h3 {
   #seccionDescripcion__datos {
     padding: 0;
     padding-top: 1rem;
-    padding: 0 1rem;
+  }
+  .peliculasImg {
+    height: 100%;
+    object-fit: cover;
   }
 
   .seccionDescripcion__genero {
