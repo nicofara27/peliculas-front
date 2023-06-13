@@ -1,5 +1,5 @@
 import { Pagination } from "antd";
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Paginacion = ({ pagina, setPagina, buscar }) => {
