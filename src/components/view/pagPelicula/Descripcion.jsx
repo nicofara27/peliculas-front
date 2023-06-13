@@ -37,8 +37,8 @@ const Descripcion = ({ pelicula }) => {
     if (genres !== undefined) {
       setGeneros(genres);
     }
-    
-    if(!nombreUsuario) {
+
+    if (nombreUsuario.length > 0) {
       listarPeliculas(nombreUsuario).then((lista) => {
         if (lista.find((pelicula) => pelicula.nombrePelicula === title)) {
           setPeliuclaEnLista(true);
@@ -48,10 +48,6 @@ const Descripcion = ({ pelicula }) => {
       });
     }
   }, [pelicula]);
-
-  useEffect(() => {
-    
-    }, []);
 
   const showModal = () => {
     if (nombreUsuario.length > 0) {
