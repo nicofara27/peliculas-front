@@ -12,7 +12,7 @@ const ActoresCard = (actor) => {
 
   return (
     <Col className="actoresCard" xs={12} sm={12} md={6} lg={4}>
-      <div>
+      <div className="actoresCard__imgContainer">
         <img
           className="actoresCard__img"
           src={img}
