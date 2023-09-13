@@ -61,7 +61,7 @@ const Tabla = ({ usuario }) => {
   }, []);
 
   return (
-    <Table id="tablaPeliculas" columns={columns} dataSource={listaPeliculas} />
+    <Table columns={columns} dataSource={listaPeliculas} />
   );
 };
 
