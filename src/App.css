@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #222222;
+  background-color: #000;
   padding: 2vh 5rem;
 }
 #logo {
@@ -163,7 +163,6 @@ nav a:hover {
   width: 30vw;
   height: 60vh;
   border-radius: 1rem;
-  /* padding: 1rem ; */
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -190,10 +189,7 @@ nav a:hover {
   background: #222222bb;
   color: #ddd;
 }
- /* .peliculasImg {
-    height: 100%;
-    object-fit: cover;
-  } */
+
 #seccionDescripcion__datos {
   padding-top: 2rem;
   font-size: 1.1rem;
@@ -307,14 +303,14 @@ h3 {
   min-height: 75.4vh;
   background-image: linear-gradient(
     to bottom,
-    #111111,
-    #161616,
-    #1a1a1a,
-    #1e1e1e,
-    #222222
+    #000000,
+    #050505,
+    #090909,
+    #0d0d0d,
+    #111111
   );
 }
-#tablaPeliculas {
+.ant-table {
   border: 1px solid #ddd;
   border-bottom: none;
 }
@@ -500,6 +496,6 @@ h3 {
 }
 
 #tablaPeliculas {
-  font-size: .8rem;
+  font-size: 0.8rem;
   overflow-x: scroll;
 }
