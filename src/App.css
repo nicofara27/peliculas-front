@@ -218,11 +218,13 @@ nav a:hover {
   margin-bottom: 1rem;
 }
 #seccionDescripcion__btn {
-  background: #a84c0d;
+  background: #3530f0;
 }
 #seccionDescripcion__btn:hover {
-  border-color: #aaa;
-  color: #aaa;
+  border-color: #fafafa;
+  color: #fafafa;
+  background: #2420d0;
+
 }
 .ant-modal-content {
   background: #111111f1 !important;
@@ -237,15 +239,16 @@ nav a:hover {
   color: #bbb;
 }
 .ant-modal-footer .ant-btn-default {
-  background: #ff4d4f;
+  background: #a84c0d;
   border: none;
 }
 .ant-modal-footer .ant-btn-default:hover {
-  background: #dd3c3f;
+  background:#973c00;
   color: #ddd;
 }
 .seccionDescripcion__genero {
   background: #13def0;
+  margin-right: .7rem;
   border-radius: 5px;
   text-align: center;
 }
@@ -399,7 +402,8 @@ h3 {
   }
 
   .seccionDescripcion__genero {
-    margin-bottom: 0.2rem;
+    min-width:8rem;
+    margin-bottom: 0.5rem;
   }
 
   #seccionActores {
@@ -482,6 +486,7 @@ h3 {
     padding: 0 1rem;
   }
   .seccionDescripcion__genero {
+    min-width: 9rem;
     margin-bottom: 0.2rem;
   }
   #seccionDescripcion__footer {
