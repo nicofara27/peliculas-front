@@ -13,7 +13,7 @@ const Tabla = ({ usuario }) => {
       dataIndex: "imagen",
       key: "imagen",
       render: (img, pelicula) => (
-        <img className="imagenTabla" alt={pelicula} src={img} />
+        <img className="tabla__img" alt={pelicula} src={img} />
       ),
     },
     {
@@ -21,7 +21,7 @@ const Tabla = ({ usuario }) => {
       width: "65%",
       dataIndex: "nombrePelicula",
       key: "nombrePelicula",
-      render: (pelicula, link) => <Link to={`/${link.key}`}>{pelicula}</Link>,
+      render: (pelicula, link) => <Link className="tabla__titulo" to={`/${link.key}`}>{pelicula}</Link>,
     },
     {
       title: "Puntuacion",

@@ -327,8 +327,11 @@ h3 {
   border: 1px solid #ddd;
   border-bottom: none;
 }
-.imagenTabla {
+.tabla__img {
   width: 100%;
+}
+.tabla__titulo {
+  color: #ddd;
 }
 
 /* Footer */
@@ -517,7 +520,12 @@ h3 {
   padding: 1.5rem;
 }
 
-#tablaPeliculas {
+.ant-table {
   font-size: 0.8rem;
   overflow-x: scroll;
 }
+.ant-table-cell:nth-child(2) {
+  min-width: 9rem;
+}
+
+  
