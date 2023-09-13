@@ -377,6 +377,9 @@ h3 {
     text-align: start;
     margin-top: 1rem;
   }
+  .peliculasDesc {
+    min-height: 7.5rem;
+  }
 
   /* Pagina ingreso */
   #pagIngreso {
@@ -462,6 +465,10 @@ h3 {
   #buscadorContainer {
     text-align: start;
     margin-top: 1rem;
+  }
+
+  .peliculasDesc {
+    min-height: 7.5rem;
   }
 
   /* Pagina ingreso */
