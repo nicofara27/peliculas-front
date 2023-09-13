@@ -136,11 +136,10 @@ const Descripcion = ({ pelicula }) => {
             <h3>Generos:</h3>
           </Col>
           <Col xs={18} sm={19} md={19} lg={21}>
-            <Row justify="center">
+            <Row justify="space-between">
               {generos.map((genero) => (
                 <Col
                   xs={12}
-                  sm={12}
                   md={7}
                   lg={4}
                   key={genero.id}
