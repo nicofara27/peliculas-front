@@ -91,14 +91,21 @@ nav a:hover {
   margin: 2rem 0;
 }
 .cardPelicula {
-  box-shadow: 1px 7px 26px 0px #333;
-  -webkit-box-shadow: 1px 7px 26px 0px #333;
-  -moz-box-shadow: 1px 7px 26px 0px #333;
+  border-radius: 7px;
+  box-shadow: 1px 3px 10px 0px #333;
+  -webkit-box-shadow: 1px 3px 10px 0px #333;
+  -moz-box-shadow: 1px 3px 10px 0px #333;
 }
 .cardPelicula:hover {
   transform: scale(1.02);
+  box-shadow: 1px 7px 30px 0px #333;
+  -webkit-box-shadow: 1px 7px 30px 0px #333;
+  -moz-box-shadow: 1px 7px 30px 0px #333;
+  transition: 0.25s;
 }
 .peliculasImg {
+  border-radius: 7px;
+
   width: 100%;
 }
 .peliculasDesc {
@@ -116,9 +123,8 @@ nav a:hover {
   margin-bottom: 0;
 }
 .peliculasDesc__icon {
-  color: #f5c518;
-  margin-top: 0.1rem;
   margin-right: 0.4rem;
+  color: #f5c518;
 }
 .peliculasDesc h2 {
   font-size: 1.2rem;
