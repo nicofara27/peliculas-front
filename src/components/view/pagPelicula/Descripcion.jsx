@@ -111,7 +111,7 @@ const Descripcion = ({ pelicula }) => {
             onOk={agregarPelicula}
             onCancel={handleCancel}
             footer={[
-              <Button key="cancelar" onClick={handleCancel}>
+              <Button key="cancelar" type="primary" danger onClick={handleCancel}>
                 Cancelar
               </Button>,
               <Button key="agregar" type="primary" onClick={agregarPelicula}>

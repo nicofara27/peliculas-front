@@ -52,17 +52,11 @@ nav a:hover {
 #btnCerrarSesion {
   margin-left: 1rem;
 }
+
 .ant-popover-inner {
   background: #111 !important;
 }
-.ant-popconfirm-buttons .ant-btn-default {
-  background: #ff4d4f;
-  border: none;
-}
-.ant-popconfirm-buttons .ant-btn-default:hover {
-  background: #dd3c3d;
-  color: #ddd;
-}
+
 /* Pagina principal */
 #pagPrincipal {
   padding: 1.5rem 5rem;
@@ -218,12 +212,12 @@ nav a:hover {
   margin-bottom: 1rem;
 }
 #seccionDescripcion__btn {
-  background: #3530f0;
+  background: #eaa12c;
 }
 #seccionDescripcion__btn:hover {
   border-color: #fafafa;
   color: #fafafa;
-  background: #2420d0;
+  background: #d9911c;
 
 }
 .ant-modal-content {
@@ -237,14 +231,6 @@ nav a:hover {
 }
 .ant-rate .ant-rate-star-second {
   color: #bbb;
-}
-.ant-modal-footer .ant-btn-default {
-  background: #a84c0d;
-  border: none;
-}
-.ant-modal-footer .ant-btn-default:hover {
-  background:#973c00;
-  color: #ddd;
 }
 .seccionDescripcion__genero {
   background: #13def0;
