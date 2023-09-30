@@ -4,7 +4,7 @@ import ActoresCard from "./ActoresCard";
 
 const Actores = (listaActores) => {
   const [actores, setActores] = useState([]);
-  let [mostrarTodos, setMostrarTodos] = useState(false);
+  const [mostrarTodos, setMostrarTodos] = useState(false);
 
   // Actualiza la lista de actores acorde al state mostrarTodos, si es false muestra lista reducida
   useEffect(() => {
@@ -33,7 +33,7 @@ const Actores = (listaActores) => {
       </Row>
       <div id="actoresBtnCont">
         <Button size="large" id="actoresBtn" onClick={mostrarMas}>
-          Mostrar todos
+          {mostrarTodos ? "Mostrar principales" : "Mostrar todos"}
         </Button>
       </div>
     </section>
