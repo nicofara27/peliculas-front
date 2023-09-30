@@ -136,7 +136,7 @@ const Descripcion = ({ pelicula }) => {
             <h3>Generos:</h3>
           </Col>
           <Col xs={18} sm={19} md={19} lg={21}>
-            <Row justify="center">
+            <Row justify="start" gutter={[0, 12]}>
               {generos.map((genero) => (
                 <Col
                   xs={12}
