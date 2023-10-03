@@ -14,18 +14,18 @@
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
-  color: #13def0;
+  color: #1CD6CE;
 }
 #logo:hover {
-  color: #13def0b9;
+  color: #42E3D6;
 }
 #logo:hover .anticon-video-camera {
-  color: #13def0b9;
+  color: #42E3D6;
 }
 
 .anticon-video-camera {
   font-size: 2.5rem;
-  color: #13def0;
+  color: #1CD6CE;
   margin-right: 0.5rem;
 }
 
@@ -52,9 +52,16 @@ nav a:hover {
 #btnCerrarSesion {
   margin-left: 1rem;
 }
-
 .ant-popover-inner {
   background: #111 !important;
+}
+.ant-popconfirm-buttons > button:first-of-type {
+  background: #D61C4E;
+  border: none;
+}
+.ant-popconfirm-buttons > button:first-of-type:hover {
+  background: #E24166;
+  color: #ddd;
 }
 
 /* Pagina principal */
@@ -198,7 +205,7 @@ nav a:hover {
   justify-content: space-between;
 }
 #seccionDescripcion__datos h1 {
-  color: #13def0;
+  color: #1CD6CE;
   margin: 0;
 }
 .seccionDescripcion__texto {
@@ -212,13 +219,12 @@ nav a:hover {
   margin-bottom: 1rem;
 }
 #seccionDescripcion__btn {
-  background: #eaa12c;
+  background: #FEDB39;
+  border: none;
+  color: #111;
 }
 #seccionDescripcion__btn:hover {
-  border-color: #fafafa;
-  color: #fafafa;
-  background: #d9911c;
-
+  background: #ffe841;
 }
 .ant-modal-content {
   background: #111111f1 !important;
@@ -233,8 +239,8 @@ nav a:hover {
   color: #bbb;
 }
 .seccionDescripcion__genero {
-  background: #13def0;
-  margin-right: .7rem;
+  background: #1CD6CE;
+  margin-right: 0.7rem;
   border-radius: 5px;
   text-align: center;
 }
@@ -282,9 +288,10 @@ h3 {
   text-align: center;
 }
 #actoresBtn {
-  border-color: #13def0;
-  background: #13def0;
+  border-color: #1CD6CE;
+  background: #1CD6CE;
 }
+
 #actoresBtn:hover {
   color: #fff;
 }
@@ -394,7 +401,7 @@ h3 {
   }
 
   .seccionDescripcion__genero {
-    min-width:8rem;
+    min-width: 8rem;
     margin-bottom: 0.5rem;
   }
 
@@ -513,5 +520,3 @@ h3 {
 .ant-table-cell:nth-child(2) {
   min-width: 9rem;
 }
-
-  

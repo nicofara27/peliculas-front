@@ -17,12 +17,14 @@ function App() {
     <ConfigProvider
     theme={{
       token: {
-        colorPrimary:"#13def0",
+        colorError:"#D61C4E",
+        colorPrimary:"#1CD6CE",
         colorText:"#ddd",
         colorTitle:"#ddd",
       }
     }}
     >
+
       <Header></Header>
       <Routes>
         <Route exact path="/" element={<PagPrincipal />}></Route>
