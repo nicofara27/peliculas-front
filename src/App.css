@@ -238,6 +238,10 @@ nav a:hover {
 .ant-rate .ant-rate-star-second {
   color: #bbb;
 }
+.ant-message-notice-content {
+  padding: 1rem;
+  background: #222 !important;
+}
 .seccionDescripcion__genero {
   background: #1CD6CE;
   margin-right: 0.7rem;
