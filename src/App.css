@@ -323,6 +323,7 @@ h3 {
 .ant-table {
   border: 1px solid #ddd;
   border-bottom: none;
+  overflow-x: hidden !important;
 }
 .tabla__img {
   width: 100%;
@@ -519,7 +520,7 @@ h3 {
 
 .ant-table {
   font-size: 0.8rem;
-  overflow-x: scroll;
+  overflow-x: scroll !important;
 }
 .ant-table-cell:nth-child(2) {
   min-width: 9rem;
