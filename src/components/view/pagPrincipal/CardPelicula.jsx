@@ -107,7 +107,7 @@ const CardPelicula = ({ pelicula }) => {
   });
 
   return (
-    <Col lg={5} md={11} sm={12} className="cardPelicula">
+    <Col sm={12} md={11} lg={5} className="cardPelicula">
       <Link to={`/${id}`}>
         <div>
           <img className="peliculasImg" src={imagen} alt={title} />
@@ -117,7 +117,7 @@ const CardPelicula = ({ pelicula }) => {
             <StarFilled className="peliculasDesc__icon" />
             <p>{puntuacion}</p>
           </div>
-          <h2>{title}</h2>
+          <h2>{title.length>37?(title.slice(0,-20)+ "..."):(title)}</h2>
           <p>{generosPelicula}</p>
         </div>
       </Link>
