@@ -1,7 +1,7 @@
+import { useEffect, useState } from "react";
 import { Button, Table } from "antd";
-import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { eliminarDeLista, listarPeliculas } from "../../helpers/helpers";
+import { eliminarDeLista, listarPeliculas } from "../../../helpers/helpers";
 
 const Tabla = ({ usuario }) => {
   let [listaPeliculas, setListaPeliculas] = useState([]);
@@ -21,7 +21,11 @@ const Tabla = ({ usuario }) => {
       width: "65%",
       dataIndex: "nombrePelicula",
       key: "nombrePelicula",
-      render: (pelicula, link) => <Link className="tabla__titulo" to={`/${link.key}`}>{pelicula}</Link>,
+      render: (pelicula, link) => (
+        <Link className="tabla__titulo" to={`/${link.key}`}>
+          {pelicula}
+        </Link>
+      ),
     },
     {
       title: "Puntuacion",
@@ -47,22 +51,20 @@ const Tabla = ({ usuario }) => {
     await eliminarDeLista(usuario, peliculaAEliminar).then(
       listarPeliculas(usuario).then((lista) => {
         setListaPeliculas(lista);
-        window.location.reload()
+        window.location.reload();
       })
-      );
+    );
   };
 
   useEffect(() => {
-    if(usuario.length >0) {
+    if (usuario.length > 0) {
       listarPeliculas(usuario).then((lista) => {
-        setListaPeliculas(lista)
+        setListaPeliculas(lista);
       });
     }
   }, []);
 
-  return (
-    <Table columns={columns} dataSource={listaPeliculas} />
-  );
+  return <Table columns={columns} dataSource={listaPeliculas} />;
 };
 
 export default Tabla;

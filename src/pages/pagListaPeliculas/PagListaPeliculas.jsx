@@ -1,7 +1,6 @@
-import Title from "antd/es/typography/Title";
-import React from "react";
-import Tabla from "./pagListaPeliculas/Tabla";
 import { ConfigProvider } from "antd";
+import Title from "antd/es/typography/Title";
+import Tabla from "./components/Tabla";
 
 const PagListaPeliculas = () => {
   let usuario = JSON.parse(localStorage.getItem("usuarioActivo")) || [];

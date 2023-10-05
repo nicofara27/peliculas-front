@@ -1,50 +1,36 @@
 import React from "react";
 import { Button, Form, Input, Typography, message } from "antd";
-import { crearUsuario } from "../../helpers/helpers";
 import { useNavigate } from "react-router-dom";
+import { login } from "../../../helpers/helpers";
 
-const FormRegistrar = ({ ingresar, setIngresar }) => {
+const FormIngresar = ({ ingresar, setIngresar }) => {
   const { Text, Title } = Typography;
   const navegacion = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
 
-  // Funcion para cambiar entre el formulario de registrar por el de iniciar sesion
-  const cambioIngreso = () => {
+  // Funcion que cambia entre el formulario de ingresar por el de registro
+  const cambioRegistro = () => {
     setIngresar(!ingresar);
   };
 
-  // Mensaje que aparece cuando se crea correctamente el usuario
-  const success = () => {
-    messageApi.open({
-      type: "success",
-      content: "La cuenta se creo correctamente",
-    });
-  };
-    // Mensaje que aparece cuando hubo un error al crear el usuario
-  const fail = () => {
-    messageApi.open({
-      type: "error",
-      content: "No se pudo crear la cuenta",
-    });
-  };
-
-  // Funcion para crear usuario
+  // Funcion para iniciar sesion
   const onFinish = (datos) => {
-    datos.lista=[]
-    crearUsuario(datos).then((respuesta) => {
-      if (respuesta.status === 201) {
-        success();
-        localStorage.setItem("usuarioActivo", JSON.stringify(datos.nombreUsuario));
+    login(datos).then((respuesta) => {
+      if (respuesta.status === 200) {
+        localStorage.setItem("usuarioActivo", JSON.stringify(respuesta.nombre));
         navegacion("/");
       } else {
-        fail();
+        messageApi.open({
+          type: "error",
+          content: "Ocurrio un error, no se pudo logear",
+        });
       }
     });
   };
 
   return (
     <section className="formularioContainer">
-      <Title>Crear Cuenta</Title>
+      <Title >Ingresar</Title>
       <Form
         className="formulario"
         layout="vertical"
@@ -52,26 +38,6 @@ const FormRegistrar = ({ ingresar, setIngresar }) => {
         onFinish={onFinish}
         autoComplete="off"
       >
-        <Form.Item
-          label="Usuario"
-          name="nombreUsuario"
-          rules={[
-            {
-              required: true,
-              message: "Por favor ingresa tu nombre de usuario!",
-            },
-            {
-              min: 6,
-              message: "El nombre de usuario debe tener mas de 6 caracteres",
-            },
-            {
-              max: 16,
-              message: "El nombre de usuario debe tener menos de 16 caracteres",
-            },
-          ]}
-        >
-          <Input placeholder="juanPerez" />
-        </Form.Item>
         <Form.Item
           label="Email"
           name="email"
@@ -121,22 +87,23 @@ const FormRegistrar = ({ ingresar, setIngresar }) => {
           }}
         >
           <Button type="primary" htmlType="submit">
-            Registrarse
+            Ingresar
           </Button>
         </Form.Item>
       </Form>
       <Text>
-        Ya tienes cuenta?{" "}
+        ¿No tienes una cuenta?{" "}
         <Button
           className="formulario__cambioBtn"
           type="text"
-          onClick={cambioIngreso}
+          onClick={cambioRegistro}
         >
-          Ingresa
+          Regístrate
         </Button>
       </Text>
     </section>
   );
 };
 
-export default FormRegistrar;
+export default FormIngresar;
+

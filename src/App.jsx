@@ -1,13 +1,13 @@
-import "antd/dist/reset.css";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import "./App.css";
 import Footer from "./components/common/Footer";
 import Header from "./components/common/Header";
-import PagPelicula from "./components/view/PagPelicula";
-import PagPrincipal from "./components/view/PagPrincipal";
-import PagIngreso from "./components/view/PagIngreso";
+import PagPelicula from "./pages/pagPelicula/PagPelicula"
+import PagPrincipal from "./pages/pagPrincipal/PagPrincipal";
+import PagIngreso from "./pages/pagIngreso/PagIngreso";
+import PagListaPeliculas from "./pages/pagListaPeliculas/PagListaPeliculas";
+import "./App.css";
+import "antd/dist/reset.css";
 import { ConfigProvider } from "antd";
-import PagListaPeliculas from "./components/view/PagListaPeliculas";
 
 function App() {
 

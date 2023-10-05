@@ -1,7 +1,7 @@
 import { Button, Col, Modal, Rate, Row, message } from "antd";
 import Title from "antd/es/typography/Title";
 import React, { useEffect, useState } from "react";
-import { agregarALista, listarPeliculas } from "../../helpers/helpers";
+import { agregarALista, listarPeliculas } from "../../../helpers/helpers";
 
 const Descripcion = ({ pelicula }) => {
   const nombreUsuario = JSON.parse(localStorage.getItem("usuarioActivo")) || [];

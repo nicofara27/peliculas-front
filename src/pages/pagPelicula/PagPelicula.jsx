@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import Actores from "./pagPelicula/Actores";
-import Descripcion from "./pagPelicula/Descripcion";
-import Galeria from "./pagPelicula/Galeria";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Actores from "./components/Actores";
+import Descripcion from "./components/Descripcion";
+import Galeria from "./components/Galeria";
 
 const PagPelicula = () => {
   const [pelicula, setPelicula] = useState([]);
   const [actores, setActores] = useState([]);
-  const [imagenes, setImagenes] =useState([]);
-  const [imagenesUrl, setImagenesUrl] =useState([]);
+  const [imagenes, setImagenes] = useState([]);
+  const [imagenesUrl, setImagenesUrl] = useState([]);
   const [imagenFondo, setImagenFondo] = useState("");
 
   let id = useParams();
@@ -54,7 +54,7 @@ const PagPelicula = () => {
       const imagenes = await respuesta.json();
       setImagenes(imagenes.backdrops);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
@@ -71,15 +71,15 @@ const PagPelicula = () => {
   }, [pelicula]);
 
   // Establece el state con las imagenes para el carousel
-  useEffect(()=> {
-    let listaImagenes = imagenes.map((imagen)=>{
-      return {original: `https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${imagen.file_path}`,
-        thumbnail: `https://www.themoviedb.org/t/p/w185${imagen.file_path}`}
-    })
+  useEffect(() => {
+    let listaImagenes = imagenes.map((imagen) => {
+      return {
+        original: `https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${imagen.file_path}`,
+        thumbnail: `https://www.themoviedb.org/t/p/w185${imagen.file_path}`,
+      };
+    });
     setImagenesUrl(listaImagenes);
   }, [imagenes]);
-  
- 
 
   return (
     <main id="pagPelicula" style={fondo}>

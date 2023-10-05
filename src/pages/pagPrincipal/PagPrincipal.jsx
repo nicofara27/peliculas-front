@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { FiltrosContext } from "../../context/filtrosContext";
-import Filtros from "./pagPrincipal/Filtros";
-import ListaPeliculas from "./pagPrincipal/ListaPeliculas";
-import Paginacion from "./pagPrincipal/Paginacion";
+import Filtros from "./components/Filtros";
+import ListaPeliculas from "./components/ListaPeliculas";
+import Paginacion from "./components/Paginacion";
 
 const PagPrincipal = () => {
   const [peliculas, setPeliculas] = useState([]);
