@@ -3,52 +3,48 @@ import { FiltrosContext } from "../../context/filtrosContext";
 import Filtros from "./components/Filtros";
 import ListaPeliculas from "./components/ListaPeliculas";
 import Paginacion from "./components/Paginacion";
+import { consultarPeliculas } from "../../helpers/helpers";
 
 const PagPrincipal = () => {
   const [peliculas, setPeliculas] = useState([]);
 
-  const { pagina, setPagina, filtro, buscar, setBuscar, categoria } =
+  const { pagina, setPagina, filtro, buscar, categoria } =
     useContext(FiltrosContext);
-
-  const consultarPeliculas = async () => {
-    try {
-      let respuesta = "";
-      if (buscar === "" && categoria === "") {
-        respuesta = await fetch(
-          `https://api.themoviedb.org/3/movie/${filtro}?api_key=04a9c758263cb0d57addf6f08ffb1202&page=${pagina}`
-        );
-      } else if (categoria !== "" && buscar === "") {
-        setPagina(1);
-        respuesta = await fetch(
-          `https://api.themoviedb.org/3/discover/movie?api_key=04a9c758263cb0d57addf6f08ffb1202&page=${pagina}&with_genres=${categoria}`
-        );
-      } else {
-        setPagina(1);
-        respuesta = await fetch(
-          `https://api.themoviedb.org/3/search/movie?api_key=04a9c758263cb0d57addf6f08ffb1202&page=${pagina}&query=${buscar}`
-        );
-      }
-      const lista = await respuesta.json();
-      setPeliculas(lista.results);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   // Ejecuta la peticion para traer las peliculas
   useEffect(() => {
-    consultarPeliculas();
+    consultarPeliculas(
+      buscar,
+      categoria,
+      pagina,
+      setPagina,
+      setPeliculas,
+      filtro
+    );
   }, []);
-
 
   // Ejecuta consultarPeliculas cuando se cambia el state buscar, el de categoria o el de filtro
   useEffect(() => {
-    consultarPeliculas();
+    consultarPeliculas(
+      buscar,
+      categoria,
+      pagina,
+      setPagina,
+      setPeliculas,
+      filtro
+    );
   }, [buscar, categoria, filtro]);
 
   // Scrollea arriba de la pagina cada vez que se cambia de nro pagina
   useEffect(() => {
-    consultarPeliculas();
+    consultarPeliculas(
+      buscar,
+      categoria,
+      pagina,
+      setPagina,
+      setPeliculas,
+      filtro
+    );
     window.scrollTo({
       top: 0,
       behavior: "smooth",
