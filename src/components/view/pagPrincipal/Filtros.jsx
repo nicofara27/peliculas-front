@@ -1,24 +1,30 @@
+import { useContext } from "react";
+import { FiltrosContext } from "../../../context/filtrosContext";
 import { Col, Input, Radio, Row } from "antd";
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Filtros = ({
-  filtro,
-  setFiltro,
-  setBuscar,
-  buscar,
-  setPagina,
-  pagina,
-}) => {
+const Filtros = () => {
+  const {
+    filtro,
+    setFiltro,
+    setBuscar,
+    buscar,
+    setCategoria,
+    setPagina,
+    pagina,
+  } = useContext(FiltrosContext);
   const navigate = useNavigate();
 
   // Funcion para cambiar los filtros de la lista de peliculas e ir a la primera pagina de la lista
   const cambiarFiltro = (e) => {
+    setPagina(1);
+    setCategoria("");
+    setBuscar("");
     let id = e.target.id;
     if (id !== filtro) {
       setFiltro(e.target.id);
-      setPagina(1);
     }
+    navigate(`/${e.target.id}/1`);
   };
 
   //Funcion para buscar una pelicula en particular e ir a la primera pagina de la lista
@@ -29,11 +35,6 @@ const Filtros = ({
       setPagina(1);
     }
   };
-
-  // Condicional que borra el state de la pelicula buscada cuando se redirige a la pagina principal
-  if (window.location.href === "http://localhost:3000/") {
-    setBuscar("");
-  }
 
   // Condicional que maqueta la lista de flitros o el nombre de la pelicula buscada
   const componenteCondicional =
