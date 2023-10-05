@@ -22,10 +22,6 @@ const Paginacion = () => {
     }
   };
 
-  // Condicional que cambia a la pagina numero 1 de la lista de peliculas cuando se navega hacia la pagina principal
-  if (window.location.href === "http://localhost:3000/") {
-    setPagina(1);
-  }
   return (
     <section id="paginacion">
       <Pagination
