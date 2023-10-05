@@ -9,6 +9,7 @@ const Filtros = () => {
     setFiltro,
     setBuscar,
     buscar,
+    categoria,
     setCategoria,
     setPagina,
     pagina,
@@ -37,8 +38,18 @@ const Filtros = () => {
   };
 
   // Condicional que maqueta la lista de flitros o el nombre de la pelicula buscada
+  const condicionalFiltroOBuscar = 
+    buscar === "" ? (<Col>
+      <h1 id="filtrosTitulo">Resultados para: {categoria}</h1>
+    </Col>): (
+      <Col>
+      <h1 id="filtrosTitulo">Resultados para: {buscar}</h1>
+    </Col>)
+    
+    console.log(categoria)
+    
   const componenteCondicional =
-    buscar === "" ? (
+    buscar === "" && categoria === "" ? (
       <Col>
         <Radio.Group defaultValue="a" buttonStyle="solid">
           <Radio.Button
@@ -72,9 +83,7 @@ const Filtros = () => {
         </Radio.Group>
       </Col>
     ) : (
-      <Col>
-        <h1 id="filtrosTitulo">Resultados para: {buscar}</h1>
-      </Col>
+      condicionalFiltroOBuscar
     );
 
   return (
