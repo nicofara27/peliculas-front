@@ -1,5 +1,5 @@
 import "antd/dist/reset.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/common/Footer";
 import Header from "./components/common/Header";
@@ -21,15 +21,19 @@ function App() {
         colorPrimary:"#1CD6CE",
         colorText:"#ddd",
         colorTitle:"#ddd",
+        colorLink:"#ddd",
+        colorLinkHover:"#1cd6ce",
+        colorLinkActive:"#42E3D6"
       }
     }}
     >
 
       <Header></Header>
       <Routes>
-        <Route exact path="/" element={<PagPrincipal />}></Route>
-        <Route exact path="/pagina/:numero" element={<PagPrincipal />}></Route>
+        <Route exact path="/" element={<Navigate to="/popular/1" />}></Route>
+        <Route exact path="/:filtro/:numero" element={<PagPrincipal />}></Route>
         <Route exact path="/buscar/:nombre/:numero" element={<PagPrincipal />}></Route>
+        <Route exact path="/categoria/:nombre/:numero" element={<PagPrincipal />}></Route>
         <Route exact path="/ingresar" element={<PagIngreso />}></Route>
         <Route exact path="/registro" element={<PagIngreso />}></Route>
         <Route exact path="/:id" element={<PagPelicula />}></Route>
