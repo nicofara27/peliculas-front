@@ -1,12 +1,15 @@
 import { Button, Drawer, Popconfirm } from "antd";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MenuOutlined, VideoCameraOutlined } from "@ant-design/icons";
 import { NavLink, useNavigate } from "react-router-dom";
+import { FiltrosContext } from "../../context/filtrosContext";
 
 const Header = () => {
   let [usuarioConectado, setUsuarioConectado] = useState(false);
   let usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo")) || [];
   const [abrirDrawer, setAbrirDrawer] = useState(false);
+
+  const { setFiltro, setPagina } = useContext(FiltrosContext);
   const navigate = useNavigate();
 
   // Si hay un usuario en el ls cambia el state usuarioConectado a true
@@ -15,6 +18,11 @@ const Header = () => {
       setUsuarioConectado(true);
     }
   }, [usuarioActivo]);
+
+  const irAInicio = () => {
+    setFiltro("popular");
+    setPagina(1);
+  };
 
   // Funciones para abrir y cerrar el drawer que contiene el navbar en responsive
   const mostrarDrawer = () => {
@@ -64,7 +72,7 @@ const Header = () => {
 
   return (
     <header id="header">
-      <NavLink id="logo" to="/">
+      <NavLink id="logo" to="/" onClick={irAInicio}>
         <VideoCameraOutlined />
         InfoPelis
       </NavLink>
