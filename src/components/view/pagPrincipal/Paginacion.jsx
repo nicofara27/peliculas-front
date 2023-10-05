@@ -1,15 +1,21 @@
+import { useContext } from "react";
+import { FiltrosContext } from "../../../context/filtrosContext";
 import { Pagination } from "antd";
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Paginacion = ({ pagina, setPagina, buscar }) => {
+const Paginacion = () => {
+  const { pagina, setPagina, buscar, categoria, filtro } =
+    useContext(FiltrosContext);
   const navigate = useNavigate();
 
   // Funcion para cambiar de pagina
   const cambiarPagina = (pag) => {
-    if (buscar === "") {
+    if (buscar === "" && categoria === "") {
       setPagina(pag);
-      navigate(`/pagina/${pag}`);
+      navigate(`/${filtro}/${pag}`);
+    } else if (categoria !== "" && buscar === "") {
+      setPagina(pag);
+      navigate(`/categoria/${categoria}/${pag}`);
     } else {
       setPagina(pag);
       navigate(`/buscar/${buscar}/${pag}`);
