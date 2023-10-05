@@ -118,7 +118,7 @@ nav a:hover {
 }
 .peliculasDesc__calificacion {
   display: flex;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.125rem;
 }
 .peliculasDesc__calificacion p {
   margin-bottom: 0;
@@ -127,11 +127,37 @@ nav a:hover {
   margin-right: 0.4rem;
   color: #f5c518;
 }
-.peliculasDesc h2 {
+.peliculasDesc__titulo {
   font-size: 1.2rem;
   font-weight: 600;
 }
 
+.peliculasDesc__categoria {
+  margin-top: .25rem;
+  margin-bottom: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.peliculasDesc__categoria li::after {
+  content: ",";
+  margin-right: .5rem;
+}
+.peliculasDesc__categoria li:last-of-type:after {
+  content: "";
+}
+.peliculasDesc__categoria button:hover {
+  color: #1CD6CE;
+  cursor: pointer;
+}
+
+.peliculasDesc__categoria button {
+  padding: 0;
+  background: none;
+  border: none;
+}
 /* Seccion paginacion */
 #paginacion {
   text-align: center;
@@ -279,7 +305,7 @@ h3 {
 }
 .actorCard__descripcion {
   background: #bbb;
-  min-height: 5rem;
+  min-height: 7rem;
   border-radius: 0 0 8px 8px;
   padding: 0.5rem;
   text-align: center;
