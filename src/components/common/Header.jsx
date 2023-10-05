@@ -9,7 +9,8 @@ const Header = () => {
   let usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo")) || [];
   const [abrirDrawer, setAbrirDrawer] = useState(false);
 
-  const { setFiltro, setPagina } = useContext(FiltrosContext);
+  const { setFiltro, setPagina, setCategoria, setBuscar } =
+    useContext(FiltrosContext);
   const navigate = useNavigate();
 
   // Si hay un usuario en el ls cambia el state usuarioConectado a true
@@ -20,6 +21,8 @@ const Header = () => {
   }, [usuarioActivo]);
 
   const irAInicio = () => {
+    setCategoria("");
+    setBuscar("");
     setFiltro("popular");
     setPagina(1);
   };
