@@ -5,10 +5,11 @@ import { agregarALista, listarPeliculas } from "../../../helpers/helpers";
 
 const Descripcion = ({ pelicula }) => {
   const nombreUsuario = JSON.parse(localStorage.getItem("usuarioActivo")) || [];
-  const [peliculaEnLista, setPeliuclaEnLista] = useState(false);
+  const [peliculaEnLista, setPeliculaEnLista] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
-  let [score, setScore] = useState(0);
+  const [score, setScore] = useState(0);
+  const [generos, setGeneros] = useState([]);
   const {
     title,
     tagline,
@@ -21,9 +22,7 @@ const Descripcion = ({ pelicula }) => {
     id,
   } = { ...pelicula };
   const img = `https://www.themoviedb.org/t/p/w440_and_h660_face${poster_path}`;
-  // Convierte el presupuesto en un numero con comas y le agrega el simbolo $, ej: 100000 a $100,000
-  const presupuesto =
-    "$" + String(budget).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
   // Convierte la duracion de minutos a un formato con horas y minutos, ej: 100 a 1h40m
   const duracionPorcentaje = String((runtime / 60).toFixed(2));
   const duracion =
@@ -31,7 +30,6 @@ const Descripcion = ({ pelicula }) => {
     "h:" +
     (((runtime / 60) % 1) * 60).toFixed(0) +
     "m";
-  const [generos, setGeneros] = useState([]);
 
   useEffect(() => {
     if (genres !== undefined) {
@@ -41,9 +39,9 @@ const Descripcion = ({ pelicula }) => {
     if (nombreUsuario.length > 0) {
       listarPeliculas(nombreUsuario).then((lista) => {
         if (lista.find((pelicula) => pelicula.nombrePelicula === title)) {
-          setPeliuclaEnLista(true);
+          setPeliculaEnLista(true);
         } else {
-          setPeliuclaEnLista(false);
+          setPeliculaEnLista(false);
         }
       });
     }
@@ -77,7 +75,7 @@ const Descripcion = ({ pelicula }) => {
       puntuacion: score,
     };
     agregarALista(nombreUsuario, pelicula);
-    setPeliuclaEnLista(true);
+    setPeliculaEnLista(true);
     setIsModalOpen(false);
     mensajePelicula();
   };
@@ -111,7 +109,12 @@ const Descripcion = ({ pelicula }) => {
             onOk={agregarPelicula}
             onCancel={handleCancel}
             footer={[
-              <Button key="cancelar" type="primary" danger onClick={handleCancel}>
+              <Button
+                key="cancelar"
+                type="primary"
+                danger
+                onClick={handleCancel}
+              >
                 Cancelar
               </Button>,
               <Button key="agregar" type="primary" onClick={agregarPelicula}>
@@ -159,7 +162,10 @@ const Descripcion = ({ pelicula }) => {
             <p>Duracion: {duracion}</p>
           </Col>
           <Col xs={9} sm={7} md={9} lg={9}>
-            <p>Presupuesto: {presupuesto}</p>
+            <p>
+              Presupuesto:{" "}
+              {"$" + String(budget).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            </p>
           </Col>
         </Row>
       </Col>
