@@ -3,6 +3,11 @@ import { useParams } from "react-router-dom";
 import Actores from "./components/Actores";
 import Descripcion from "./components/Descripcion";
 import Galeria from "./components/Galeria";
+import {
+  consultarActores,
+  consultarImagenes,
+  consultarPelicula,
+} from "../../helpers/helpers";
 
 const PagPelicula = () => {
   const [pelicula, setPelicula] = useState([]);
@@ -10,7 +15,7 @@ const PagPelicula = () => {
   const [imagenes, setImagenes] = useState([]);
   const [imagenesUrl, setImagenesUrl] = useState([]);
   const [imagenFondo, setImagenFondo] = useState("");
-
+  
   let id = useParams();
   // Estilo para la imagen de fondo
   const fondo = {
@@ -19,50 +24,11 @@ const PagPelicula = () => {
     backgroundAttachment: "fixed",
   };
 
-  // Funcion para traer los datos de cada peliculas
-  let consultarPelicula = async () => {
-    try {
-      const respuesta = await fetch(
-        `https://api.themoviedb.org/3/movie/${id.id}?api_key=04a9c758263cb0d57addf6f08ffb1202`
-      );
-      const datos = await respuesta.json();
-      setPelicula(datos);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  // Funcion para traer la lista de actores de cada pelicula
-  const consultarActores = async () => {
-    try {
-      const respuesta = await fetch(
-        `https://api.themoviedb.org/3/movie/${id.id}/credits?api_key=04a9c758263cb0d57addf6f08ffb1202`
-      );
-      const actores = await respuesta.json();
-      setActores(actores.cast);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  // Funcion para traer la lista de imagenes para cada pelicula
-  const consultarImagenes = async () => {
-    try {
-      const respuesta = await fetch(
-        `https://api.themoviedb.org/3/movie/${id.id}/images?api_key=04a9c758263cb0d57addf6f08ffb1202`
-      );
-      const imagenes = await respuesta.json();
-      setImagenes(imagenes.backdrops);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   // Ejecuta las solicitudes API cuando carga la pagina
   useEffect(() => {
-    consultarPelicula();
-    consultarActores();
-    consultarImagenes();
+    consultarPelicula(setPelicula, id);
+    consultarActores(setActores, id);
+    consultarImagenes(setImagenes, id);
   }, []);
 
   // Establece el link de la imagen de fondo cuando se actualiza el estado pelicula
