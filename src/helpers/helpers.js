@@ -112,3 +112,55 @@ export const consultarPeliculas = async (
     console.log(error);
   }
 };
+
+  // Funcion para traer los datos de cada peliculas
+  export const  consultarPelicula = async (setPelicula, id) => {
+    console.log(`https://api.themoviedb.org/3/movie/${id.id}?api_key=04a9c758263cb0d57addf6f08ffb1202`)
+    try {
+      const respuesta = await fetch(
+        `https://api.themoviedb.org/3/movie/${id.id}?api_key=04a9c758263cb0d57addf6f08ffb1202`
+      );
+      const datos = await respuesta.json();
+      setPelicula(datos);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Funcion para traer la lista de actores de cada pelicula
+  export const consultarActores = async (setActores, id) => {
+    try {
+      const respuesta = await fetch(
+        `https://api.themoviedb.org/3/movie/${id.id}/credits?api_key=04a9c758263cb0d57addf6f08ffb1202`
+      );
+      const actores = await respuesta.json();
+      setActores(actores.cast);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Funcion para traer la lista de imagenes para cada pelicula
+  export const consultarImagenes = async (setImagenes, id) => {
+    try {
+      const respuesta = await fetch(
+        `https://api.themoviedb.org/3/movie/${id.id}/images?api_key=04a9c758263cb0d57addf6f08ffb1202`
+      );
+      const imagenes = await respuesta.json();
+      setImagenes(imagenes.backdrops);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  export const elimiarPelicula = async (key, listaPeliculas, setListaPeliculas, usuario) => {
+    const peliculaAEliminar = listaPeliculas.find(
+      (pelicula) => pelicula.key === key
+    );
+    await eliminarDeLista(usuario, peliculaAEliminar).then(
+      listarPeliculas(usuario).then((lista) => {
+        setListaPeliculas(lista);
+        window.location.reload();
+      })
+    );
+  };
