@@ -2,32 +2,32 @@ import { Button, Row } from "antd";
 import React, { useEffect, useState } from "react";
 import ActoresCard from "./ActoresCard";
 
-const Actores = (listaActores) => {
-  const [actores, setActores] = useState([]);
+const Actores = ({ actores }) => {
+  const [listaActores, setListaActores] = useState([]);
   const [mostrarTodos, setMostrarTodos] = useState(false);
 
   // Actualiza la lista de actores acorde al state mostrarTodos, si es false muestra lista reducida
   useEffect(() => {
-    if (listaActores !== undefined) {
+    if (actores !== undefined) {
       // Por defecto muestra 12
       if (!mostrarTodos) {
-        setActores(listaActores.actores.slice(0, 12));
+        setListaActores(actores.slice(0, 12));
       } else {
-        setActores(listaActores.actores);
+        setListaActores(actores);
       }
     }
-  }, [listaActores, mostrarTodos]);
+  }, [actores, mostrarTodos]);
 
   // Funcion que cambia el state de mostrarTodos
-   const mostrarMas = () => {
-    setMostrarTodos(!mostrarTodos)
-   }
+  const mostrarMas = () => {
+    setMostrarTodos(!mostrarTodos);
+  };
 
   return (
     <section id="seccionActores">
       <h2>Actores</h2>
       <Row gutter={[16, 24]}>
-        {actores.map((actor) => (
+        {listaActores.map((actor) => (
           <ActoresCard key={actor.id} actor={actor}></ActoresCard>
         ))}
       </Row>
