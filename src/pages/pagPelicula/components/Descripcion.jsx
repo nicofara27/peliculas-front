@@ -1,14 +1,13 @@
-import { Button, Col, Modal, Rate, Row, message } from "antd";
+import { Col, Row, message } from "antd";
 import Title from "antd/es/typography/Title";
 import React, { useEffect, useState } from "react";
-import { agregarALista, listarPeliculas } from "../../../helpers/helpers";
+import { listarPeliculas } from "../../../helpers/helpers";
+import DescripcionModal from "./DescripcionBtn";
 
+const nombreUsuario = JSON.parse(localStorage.getItem("usuarioActivo")) || [];
 const Descripcion = ({ pelicula }) => {
-  const nombreUsuario = JSON.parse(localStorage.getItem("usuarioActivo")) || [];
   const [peliculaEnLista, setPeliculaEnLista] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
-  const [score, setScore] = useState(0);
   const [generos, setGeneros] = useState([]);
   const {
     title,
@@ -19,7 +18,6 @@ const Descripcion = ({ pelicula }) => {
     release_date,
     runtime,
     budget,
-    id,
   } = { ...pelicula };
   const img = `https://www.themoviedb.org/t/p/w440_and_h660_face${poster_path}`;
 
@@ -47,49 +45,6 @@ const Descripcion = ({ pelicula }) => {
     }
   }, [pelicula]);
 
-  const showModal = () => {
-    if (nombreUsuario.length > 0) {
-      setIsModalOpen(true);
-    } else {
-      messageApi.open({
-        type: "error",
-        content: "Inicia sesion para poder agregar peliculas",
-      });
-    }
-  };
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-  const mensajePelicula = () => {
-    messageApi.open({
-      type: "success",
-      content: "Se agrego correctamente a la lista",
-    });
-  };
-
-  const agregarPelicula = () => {
-    const pelicula = {
-      key: id,
-      imagen: img,
-      nombrePelicula: title,
-      puntuacion: score,
-    };
-    agregarALista(nombreUsuario, pelicula);
-    setPeliculaEnLista(true);
-    setIsModalOpen(false);
-    mensajePelicula();
-  };
-
-  const btnCondicional = peliculaEnLista ? (
-    <Button id="seccionDescripcion__btn" disabled>
-      Pelicula agregada
-    </Button>
-  ) : (
-    <Button id="seccionDescripcion__btn" onClick={showModal}>
-      Agregar a mi lista
-    </Button>
-  );
-
   return (
     <Row id="seccionDescripcion">
       {contextHolder}
@@ -102,34 +57,13 @@ const Descripcion = ({ pelicula }) => {
           <p>{tagline}</p>
         </div>
         <div className="seccionDescripcion__texto">
-          {btnCondicional}
-          <Modal
-            title="Puntuacion"
-            open={isModalOpen}
-            onOk={agregarPelicula}
-            onCancel={handleCancel}
-            footer={[
-              <Button
-                key="cancelar"
-                type="primary"
-                danger
-                onClick={handleCancel}
-              >
-                Cancelar
-              </Button>,
-              <Button key="agregar" type="primary" onClick={agregarPelicula}>
-                Agregar
-              </Button>,
-            ]}
-          >
-            <Rate
-              allowHalf
-              onChange={(value) => {
-                setScore(value);
-              }}
-              value={score}
-            />
-          </Modal>
+          <DescripcionModal
+            messageApi={messageApi}
+            peliculaEnLista={peliculaEnLista}
+            pelicula={pelicula}
+            nombreUsuario={nombreUsuario}
+            setPeliculaEnLista={setPeliculaEnLista}
+          />
         </div>
         <div className="seccionDescripcion__texto">
           <p>{overview}</p>
