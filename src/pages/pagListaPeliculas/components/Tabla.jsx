@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { Button, Table } from "antd";
 import { Link } from "react-router-dom";
-import { eliminarDeLista, listarPeliculas } from "../../../helpers/helpers";
+import {
+  elimiarPelicula,
+  listarPeliculas,
+} from "../../../helpers/helpers";
 
 const Tabla = ({ usuario }) => {
   let [listaPeliculas, setListaPeliculas] = useState([]);
@@ -37,24 +40,17 @@ const Tabla = ({ usuario }) => {
       width: "10%",
       dataIndex: "key",
       render: (key) => (
-        <Button onClick={() => elimiarPelicula(key)} danger>
+        <Button
+          onClick={() =>
+            elimiarPelicula(key, usuario, listaPeliculas, setListaPeliculas)
+          }
+          danger
+        >
           Borrar
         </Button>
       ),
     },
   ];
-
-  const elimiarPelicula = async (key) => {
-    const peliculaAEliminar = listaPeliculas.find(
-      (pelicula) => pelicula.key === key
-    );
-    await eliminarDeLista(usuario, peliculaAEliminar).then(
-      listarPeliculas(usuario).then((lista) => {
-        setListaPeliculas(lista);
-        window.location.reload();
-      })
-    );
-  };
 
   useEffect(() => {
     if (usuario.length > 0) {
