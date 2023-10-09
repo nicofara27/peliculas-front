@@ -153,7 +153,7 @@ export const consultarPeliculas = async (
     }
   };
 
-  export const elimiarPelicula = async (key, listaPeliculas, setListaPeliculas, usuario) => {
+  export const elimiarPelicula = async (key, usuario, listaPeliculas, setListaPeliculas) => {
     const peliculaAEliminar = listaPeliculas.find(
       (pelicula) => pelicula.key === key
     );
