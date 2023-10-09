@@ -1,8 +1,7 @@
 import { Col } from "antd";
-import React from "react";
 
-const ActoresCard = (actor) => {
-  const {name, profile_path, character} = {...actor.actor}
+const ActoresCard = ({actor}) => {
+  const {name, profile_path, character} = {...actor}
   let img = `https://www.themoviedb.org/t/p/w276_and_h350_face${profile_path}`
   
   // Si el actor no tiene imagen se le asigna una de un avatar
