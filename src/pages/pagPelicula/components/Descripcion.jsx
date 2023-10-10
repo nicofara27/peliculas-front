@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import { listarPeliculas } from "../../../helpers/helpers";
 import DescripcionModal from "./DescripcionBtn";
 
-const nombreUsuario = JSON.parse(localStorage.getItem("usuarioActivo")) || [];
 const Descripcion = ({ pelicula }) => {
+  const nombreUsuario = JSON.parse(localStorage.getItem("usuarioActivo")) || [];
   const [peliculaEnLista, setPeliculaEnLista] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
   const [generos, setGeneros] = useState([]);
