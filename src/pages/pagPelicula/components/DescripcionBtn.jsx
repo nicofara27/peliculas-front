@@ -39,7 +39,6 @@ const DescripcionBtn = ({
       nombrePelicula: pelicula.title,
       puntuacion: score,
     };
-    console.log(pelicula);
     agregarALista(nombreUsuario, peliculaASubir);
     setPeliculaEnLista(true);
     setIsModalOpen(false);
