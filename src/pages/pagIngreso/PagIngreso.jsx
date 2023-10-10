@@ -15,7 +15,7 @@ const PagIngreso = () => {
       } else {
         messageApi.open({
           type: "error",
-          content: "Ocurrio un error, no se pudo logear",
+          content: "El usuario o la contraseña son incorrectos",
         });
       }
     });
@@ -23,6 +23,7 @@ const PagIngreso = () => {
 
   return (
     <main id="pagFormulario">
+      {contextHolder}
       <section className="formularioContainer">
         <Title>Ingresar</Title>
         <Form

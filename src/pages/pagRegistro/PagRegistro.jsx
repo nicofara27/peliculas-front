@@ -18,7 +18,7 @@ const PagRegistro = () => {
   const fail = () => {
     messageApi.open({
       type: "error",
-      content: "No se pudo crear la cuenta",
+      content: "El usuario o el email ya existe",
     });
   };
 
@@ -26,7 +26,7 @@ const PagRegistro = () => {
   const onFinish = (datos) => {
     datos.lista = [];
     crearUsuario(datos).then((respuesta) => {
-        console.log(respuesta.json())
+      console.log(respuesta)
       if (respuesta.status === 201) {
         success();
         localStorage.setItem(
@@ -35,13 +35,13 @@ const PagRegistro = () => {
         );
         navegacion("/");
       } else {
-        console.log(respuesta.json().value)
         fail();
       }
     });
   };
   return (
     <main id="pagFormulario">
+      {contextHolder}
       <section className="formularioContainer">
         <Title>Crear Cuenta</Title>
         <Form
