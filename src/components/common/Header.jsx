@@ -49,9 +49,6 @@ const Header = () => {
         <NavLink onClick={cerrarDrawer} to="/milista">
           Mi lista
         </NavLink>
-        <NavLink onClick={cerrarDrawer} to="">
-          Github
-        </NavLink>
         {usuarioConectado ? (
           <Popconfirm
             title="Cerrar sesion"
@@ -65,7 +62,7 @@ const Header = () => {
             </Button>
           </Popconfirm>
         ) : (
-          <NavLink onClick={cerrarDrawer} to="/ingresar">
+          <NavLink id="btnIngresar" onClick={cerrarDrawer} to="/ingresar">
             Ingresar
           </NavLink>
         )}
