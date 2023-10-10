@@ -5,8 +5,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { FiltrosContext } from "../../context/filtrosContext";
 
 const Header = () => {
-  let [usuarioConectado, setUsuarioConectado] = useState(false);
   let usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo")) || [];
+  let [usuarioConectado, setUsuarioConectado] = useState(false);
   const [abrirDrawer, setAbrirDrawer] = useState(false);
 
   const { setFiltro, setPagina, setCategoria, setBuscar } =
@@ -46,10 +46,11 @@ const Header = () => {
   const NavBar = () => {
     return (
       <nav>
+        {usuarioConectado ? (
+          <>
         <NavLink onClick={cerrarDrawer} to="/milista">
           Mi lista
         </NavLink>
-        {usuarioConectado ? (
           <Popconfirm
             title="Cerrar sesion"
             description="¿Estas seguro que deseas cerrar sesion?"
@@ -61,6 +62,7 @@ const Header = () => {
               Cerrar sesion
             </Button>
           </Popconfirm>
+          </>
         ) : (
           <NavLink id="btnIngresar" onClick={cerrarDrawer} to="/ingresar">
             Ingresar
