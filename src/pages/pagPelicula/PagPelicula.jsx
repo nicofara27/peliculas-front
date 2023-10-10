@@ -26,6 +26,10 @@ const PagPelicula = () => {
 
   // Ejecuta las solicitudes API cuando carga la pagina
   useEffect(() => {
+    window.scrollTo({
+      top: -20,
+      behavior: "smooth",
+    });
     consultarPelicula(setPelicula, id);
     consultarActores(setActores, id);
     consultarImagenes(setImagenes, id);
