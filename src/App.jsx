@@ -9,6 +9,7 @@ import "./App.css";
 import "antd/dist/reset.css";
 import { ConfigProvider } from "antd";
 import PagRegistro from "./pages/pagRegistro/PagRegistro";
+import RutaProtegida from "./routes/RutaProtegida";
 
 function App() {
 
@@ -38,7 +39,12 @@ function App() {
         <Route exact path="/ingresar" element={<PagIngreso />}></Route>
         <Route exact path="/registro" element={<PagRegistro />}></Route>
         <Route exact path="/:id" element={<PagPelicula />}></Route>
-        <Route exact path="/milista" element={<PagListaPeliculas />}></Route>
+        <Route exact path="/milista" element={
+        <RutaProtegida>
+          <PagListaPeliculas />
+        </RutaProtegida>
+        }></Route>
+        {/* <Route exact path="/milista" element={<PagListaPeliculas />}></Route> */}
       </Routes>
       <Footer></Footer>
       </ConfigProvider>
