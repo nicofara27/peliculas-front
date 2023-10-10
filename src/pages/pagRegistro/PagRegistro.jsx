@@ -26,7 +26,6 @@ const PagRegistro = () => {
   const onFinish = (datos) => {
     datos.lista = [];
     crearUsuario(datos).then((respuesta) => {
-      console.log(respuesta)
       if (respuesta.status === 201) {
         success();
         localStorage.setItem(
@@ -127,11 +126,7 @@ const PagRegistro = () => {
         </Form>
         <Text>
           Ya tienes cuenta?{" "}
-          <Link
-            className="formulario__cambioBtn"
-            type="text"
-            to ="/ingresar"
-          >
+          <Link className="formulario__cambioBtn" type="text" to="/ingresar">
             Ingresa
           </Link>
         </Text>

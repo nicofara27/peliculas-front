@@ -48,20 +48,20 @@ const Header = () => {
       <nav>
         {usuarioConectado ? (
           <>
-        <NavLink onClick={cerrarDrawer} to="/milista">
-          Mi lista
-        </NavLink>
-          <Popconfirm
-            title="Cerrar sesion"
-            description="¿Estas seguro que deseas cerrar sesion?"
-            onConfirm={cerrarSesion}
-            okText="Si"
-            cancelText="No"
-          >
-            <Button type="primary" danger id="btnCerrarSesion">
-              Cerrar sesion
-            </Button>
-          </Popconfirm>
+            <NavLink onClick={cerrarDrawer} to="/milista">
+              Mi lista
+            </NavLink>
+            <Popconfirm
+              title="Cerrar sesion"
+              description="¿Estas seguro que deseas cerrar sesion?"
+              onConfirm={cerrarSesion}
+              okText="Si"
+              cancelText="No"
+            >
+              <Button type="primary" danger id="btnCerrarSesion">
+                Cerrar sesion
+              </Button>
+            </Popconfirm>
           </>
         ) : (
           <NavLink id="btnIngresar" onClick={cerrarDrawer} to="/ingresar">

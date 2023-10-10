@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { FiltrosContext } from "../../../context/filtrosContext";
 import { Col, Radio } from "antd";
 
-const FiltrosOTitulo = ({cambiarFiltro}) => {
+const FiltrosOTitulo = ({ cambiarFiltro }) => {
   const { buscar, categoria } = useContext(FiltrosContext);
-  
+
   // Condicional que maqueta la lista de flitros o el nombre de la pelicula buscada
   const condicionalFiltroOBuscar =
     buscar === "" ? (
