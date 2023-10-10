@@ -113,8 +113,7 @@ nav a:hover {
   transition: 0.25s;
 }
 .peliculasImg {
-  border-radius: 7px;
-
+  border-radius: 7px 7px 0 0;
   width: 100%;
 }
 .peliculasDesc {
