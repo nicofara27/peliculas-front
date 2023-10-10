@@ -8,6 +8,7 @@ import PagListaPeliculas from "./pages/pagListaPeliculas/PagListaPeliculas";
 import "./App.css";
 import "antd/dist/reset.css";
 import { ConfigProvider } from "antd";
+import PagRegistro from "./pages/pagRegistro/PagRegistro";
 
 function App() {
 
@@ -35,7 +36,7 @@ function App() {
         <Route exact path="/buscar/:nombre/:numero" element={<PagPrincipal />}></Route>
         <Route exact path="/categoria/:nombre/:numero" element={<PagPrincipal />}></Route>
         <Route exact path="/ingresar" element={<PagIngreso />}></Route>
-        <Route exact path="/registro" element={<PagIngreso />}></Route>
+        <Route exact path="/registro" element={<PagRegistro />}></Route>
         <Route exact path="/:id" element={<PagPelicula />}></Route>
         <Route exact path="/milista" element={<PagListaPeliculas />}></Route>
       </Routes>
