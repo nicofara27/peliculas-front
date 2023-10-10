@@ -189,7 +189,7 @@ nav a:hover {
 }
 
 /* Pagina de ingreso */
-#pagIngreso {
+#pagFormulario {
   background: #111;
   height: 85vh;
   padding: 6rem 0;
@@ -417,7 +417,7 @@ h3 {
   }
 
   /* Pagina ingreso */
-  #pagIngreso {
+  #pagFormulario {
     height: 79.5vh;
     padding: 12rem 0;
   }
@@ -507,7 +507,7 @@ h3 {
   }
 
   /* Pagina ingreso */
-  #pagIngreso {
+  #pagFormulario {
     height: 77.7vh;
     padding: 5rem 0;
   }
