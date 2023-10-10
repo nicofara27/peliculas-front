@@ -41,6 +41,14 @@ nav a {
 nav a:hover {
   color: #ddd;
 }
+#btnIngresar {
+  padding: 5px 15px;
+  background: #1CD6CE;
+  border-radius: 6px;
+}
+#btnIngresar:hover {
+  background: #42E3D6;
+}
 #btnHamburguesa {
   display: none;
   color: #ddd;
