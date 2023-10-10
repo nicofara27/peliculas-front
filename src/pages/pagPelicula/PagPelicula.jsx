@@ -15,7 +15,7 @@ const PagPelicula = () => {
   const [imagenes, setImagenes] = useState([]);
   const [imagenesUrl, setImagenesUrl] = useState([]);
   const [imagenFondo, setImagenFondo] = useState("");
-  
+
   let id = useParams();
   // Estilo para la imagen de fondo
   const fondo = {

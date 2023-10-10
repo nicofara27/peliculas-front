@@ -14,18 +14,18 @@
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
-  color: #1CD6CE;
+  color: #1cd6ce;
 }
 #logo:hover {
-  color: #42E3D6;
+  color: #42e3d6;
 }
 #logo:hover .anticon-video-camera {
-  color: #42E3D6;
+  color: #42e3d6;
 }
 
 .anticon-video-camera {
   font-size: 2.5rem;
-  color: #1CD6CE;
+  color: #1cd6ce;
   margin-right: 0.5rem;
 }
 
@@ -43,11 +43,11 @@ nav a:hover {
 }
 #btnIngresar {
   padding: 5px 15px;
-  background: #1CD6CE;
+  background: #1cd6ce;
   border-radius: 6px;
 }
 #btnIngresar:hover {
-  background: #42E3D6;
+  background: #42e3d6;
 }
 #btnHamburguesa {
   display: none;
@@ -64,11 +64,11 @@ nav a:hover {
   background: #111 !important;
 }
 .ant-popconfirm-buttons > button:first-of-type {
-  background: #D61C4E;
+  background: #d61c4e;
   border: none;
 }
 .ant-popconfirm-buttons > button:first-of-type:hover {
-  background: #E24166;
+  background: #e24166;
   color: #ddd;
 }
 
@@ -140,7 +140,7 @@ nav a:hover {
 }
 
 .peliculasDesc__categoria {
-  margin-top: .25rem;
+  margin-top: 0.25rem;
   margin-bottom: 0;
   padding: 0;
   display: flex;
@@ -150,13 +150,13 @@ nav a:hover {
 
 .peliculasDesc__categoria li::after {
   content: ",";
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 .peliculasDesc__categoria li:last-of-type:after {
   content: "";
 }
 .peliculasDesc__categoria button:hover {
-  color: #1CD6CE;
+  color: #1cd6ce;
   cursor: pointer;
 }
 
@@ -238,7 +238,7 @@ nav a:hover {
   justify-content: space-between;
 }
 #seccionDescripcion__datos h1 {
-  color: #1CD6CE;
+  color: #1cd6ce;
   margin: 0;
 }
 .seccionDescripcion__texto {
@@ -252,7 +252,7 @@ nav a:hover {
   margin-bottom: 1rem;
 }
 #seccionDescripcion__btn {
-  background: #FEDB39;
+  background: #fedb39;
   border: none;
   color: #111;
 }
@@ -276,7 +276,7 @@ nav a:hover {
   background: #222 !important;
 }
 .seccionDescripcion__genero {
-  background: #1CD6CE;
+  background: #1cd6ce;
   margin-right: 0.7rem;
   border-radius: 5px;
   text-align: center;
@@ -325,8 +325,8 @@ h3 {
   text-align: center;
 }
 #actoresBtn {
-  border-color: #1CD6CE;
-  background: #1CD6CE;
+  border-color: #1cd6ce;
+  background: #1cd6ce;
 }
 
 #actoresBtn:hover {
@@ -341,7 +341,7 @@ h3 {
   color: #ddd;
 }
 
-#pagListaPeliculas  {
+#pagListaPeliculas {
   padding: 2.5rem 5rem;
   min-height: 75.4vh;
   background-image: linear-gradient(
@@ -458,7 +458,6 @@ h3 {
   }
 }
 
-
 /* Responsive para dispositivos SM */
 @media (max-width: 768px) {
   /* Header */
@@ -548,7 +547,7 @@ h3 {
   #pagListaPeliculas {
     padding: 1.5rem;
   }
-  
+
   .ant-table {
     font-size: 0.8rem;
     overflow-x: scroll !important;
@@ -557,4 +556,3 @@ h3 {
     min-width: 9rem;
   }
 }
-

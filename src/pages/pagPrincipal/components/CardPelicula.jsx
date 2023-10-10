@@ -20,7 +20,7 @@ const CardPelicula = ({ pelicula }) => {
   }
 
   // Comprueba el codigo que viene de la api con la listaGeneros para definir a que generos pertenece la pelicula
-  let generosPelicula = []; 
+  let generosPelicula = [];
   genre_ids.forEach((idGenero) => {
     let generoEncontrado = listaGeneros.find(
       (genero) => genero.id === idGenero

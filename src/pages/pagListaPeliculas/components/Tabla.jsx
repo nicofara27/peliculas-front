@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Table } from "antd";
 import { Link } from "react-router-dom";
-import {
-  elimiarPelicula,
-  listarPeliculas,
-} from "../../../helpers/helpers";
+import { elimiarPelicula, listarPeliculas } from "../../../helpers/helpers";
 
 const Tabla = ({ usuario }) => {
   let [listaPeliculas, setListaPeliculas] = useState([]);
