@@ -41,7 +41,7 @@ export const listarPeliculas = async (nombreUsuario) => {
   try {
     const respuesta = await fetch(URL + nombreUsuario);
     const listaPeliculas = await respuesta.json();
-    return listaPeliculas[0].lista;
+    return listaPeliculas;
   } catch (error) {
     console.log(error);
     return false;
