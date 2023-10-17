@@ -1,22 +1,24 @@
 import { Col } from "antd";
 import { StarFilled } from "@ant-design/icons";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiltrosContext } from "../../../context/filtrosContext";
 import { listaGeneros } from "../../../constants";
 
 const CardPelicula = ({ pelicula }) => {
-  const { setCategoria } = useContext(FiltrosContext);
   const { title, vote_average, poster_path, genre_ids, id } = {
     ...pelicula,
   };
+  const [puntuacion, setPuntuacion] = useState(vote_average.toFixed(1));
+  const imagen = `https://www.themoviedb.org/t/p/w440_and_h660_face${poster_path}`;
+
+  const { setCategoria } = useContext(FiltrosContext);
+
   const navigate = useNavigate();
 
-  const imagen = `https://www.themoviedb.org/t/p/w440_and_h660_face${poster_path}`;
   // Redondea el valor de la puntuacion
-  let puntuacion = vote_average.toFixed(1);
   if (puntuacion.toString().split(".")[1] === "0") {
-    puntuacion = puntuacion.toString().split(".")[0];
+    setPuntuacion(puntuacion.toString().split(".")[0]);
   }
 
   // Comprueba el codigo que viene de la api con la listaGeneros para definir a que generos pertenece la pelicula
