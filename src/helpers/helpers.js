@@ -85,7 +85,6 @@ export const consultarPeliculas = async (
   buscar,
   categoria,
   pagina,
-  setPagina,
   setPeliculas,
   filtro
 ) => {
@@ -96,12 +95,10 @@ export const consultarPeliculas = async (
         `https://api.themoviedb.org/3/movie/${filtro}?api_key=04a9c758263cb0d57addf6f08ffb1202&page=${pagina}`
       );
     } else if (categoria !== "" && buscar === "") {
-      setPagina(1);
       respuesta = await fetch(
         `https://api.themoviedb.org/3/discover/movie?api_key=04a9c758263cb0d57addf6f08ffb1202&page=${pagina}&with_genres=${categoria}`
       );
     } else {
-      setPagina(1);
       respuesta = await fetch(
         `https://api.themoviedb.org/3/search/movie?api_key=04a9c758263cb0d57addf6f08ffb1202&page=${pagina}&query=${buscar}`
       );

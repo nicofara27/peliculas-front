@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import FiltrosOTitulo from "./FiltrosOTitulo";
 
 const Filtros = () => {
-  const { filtro, setFiltro, setBuscar, setCategoria, setPagina, pagina } =
+  const { filtro, setFiltro, setBuscar, setCategoria, setPagina } =
     useContext(FiltrosContext);
   const navigate = useNavigate();
 
@@ -24,9 +24,9 @@ const Filtros = () => {
   //Funcion para buscar una pelicula en particular e ir a la primera pagina de la lista
   const buscarPelicula = (nombre) => {
     if (nombre !== "") {
-      navigate(`/buscar/${nombre}/${pagina}`);
       setBuscar(nombre);
       setPagina(1);
+      navigate(`/buscar/${nombre}/1`);
     }
   };
 

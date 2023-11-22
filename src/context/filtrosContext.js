@@ -1,7 +1,6 @@
 import { createContext, useState } from "react";
 
 export const FiltrosContext = createContext();
-
 export const FiltrosContextProvider = ({ children }) => {
   const [pagina, setPagina] = useState(1);
   const [filtro, setFiltro] = useState("popular");
