@@ -9,18 +9,10 @@ import { useParams } from "react-router-dom";
 const PagPrincipal = () => {
   const [peliculas, setPeliculas] = useState([]);
 
-  const { pagina, setPagina, filtro, setFiltro, buscar, setBuscar, categoria, setCategoria } =
-    useContext(FiltrosContext);
+  const { pagina, filtro, buscar, categoria } = useContext(FiltrosContext);
 
-  // Ejecuta consultarPeliculas cuando se cambia el state buscar, el de categoria o el de filtro
   useEffect(() => {
-    consultarPeliculas(
-      buscar,
-      categoria,
-      pagina,
-      setPeliculas,
-      filtro
-    );
+    consultarPeliculas(buscar, categoria, pagina, setPeliculas, filtro);
     window.scrollTo({
       top: 0,
       behavior: "smooth",
